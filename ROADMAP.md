@@ -46,12 +46,21 @@
 
 ## Open questions (blocking, ask the human)
 
-- Initial watch allowlist (all of ~/Documents/Claude, or named projects?).
 - Website target: static-site generator? Which host/repo receives the
   published page? (Determines E4's shape.)
-- Digest voice/format preferences (length, tone, what's public vs private —
-  some projects may be excluded from public digests entirely; the registry
-  needs a `public: false` flag).
+- Digest voice/format preferences (length, tone).
+- `public:` flags per watched project (which projects may appear in
+  published digests — layered in THIS repo's watch config over the canonical
+  roster; default `public: false` until the human flags otherwise).
+
+## Answered (moved from open questions)
+
+- **Watch allowlist** (2026-07-10): the canonical ecosystem roster at
+  `autonomous/registry.json` (autonomous Decision 14). dispatch layers
+  per-project flags (`public:` etc.) in its own config over that roster —
+  never a duplicate roster. Groups (synthetic-worlds) recurse one level;
+  un-normalized projects are watched anyway with facts marked
+  inferred-vs-declared.
 
 ## Deferred / demoted
 
