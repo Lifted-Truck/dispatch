@@ -8,7 +8,9 @@
 
 - **E0 — Charter.** Scaffolded, manifest drafted, brief filed with
   autonomous. *Gate: human ratifies manifest + roadmap, and confirms the
-  watch registry's initial allowlist.* **← current phase**
+  watch registry's initial allowlist.* **CLOSED 2026-07-10** (user
+  go-ahead; allowlist = autonomous/registry.json; brief answered —
+  `status.1` pinned, see decisions).
 - **E1 — Registry + collector (deterministic).** Watched-repo allowlist
   (config file); collector reads git log, traces/, DECISIONS.md, ROADMAP
   phase markers, verify results (.harness/last-verify.json) since last run;
@@ -18,7 +20,7 @@
   declared). *Gate: two consecutive runs over the real project tree — second
   collects only the delta; FACTS replay byte-identical from the same inputs;
   a repo with zero activity produces an explicit "quiet" record, not an
-  absence.*
+  absence.* **← current phase**
 - **E2 — Renderer (deterministic).** Styled static digest from a FACTS file
   (template + CSS, self-contained HTML per the visual-first doctrine); a
   golden-render test pins the output for a fixture FACTS file. *Gate: golden
@@ -43,6 +45,14 @@
 2. **Publishing human-gated per digest** until auto-publish criteria are
    explicitly decided (outward-facing action; autonomy graded by
    reversibility — a published post is only softly reversible).
+3. **Pins** (2026-07-10, per autonomous's response to dispatch-001):
+   `status.1` (STATUS surface; `.harness/last-verify.json` lifted verbatim;
+   NO public flag in STATUS — publishability lives in OUR watch config,
+   default false) and the shared sweep primitive
+   (`autonomous/kit/sweep/sweep.py`; our own ledger file). E1 proceeds now
+   against schema + example; inferred-vs-declared marking is the migration
+   plan for repos without writers. Owed: contract-test fixtures for
+   `status.1` (author during E1, file via the integrations channel).
 
 ## Open questions (blocking, ask the human)
 

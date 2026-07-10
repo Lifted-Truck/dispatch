@@ -1,25 +1,42 @@
 {
-  "schema": "project-manifest.0 (draft — kit v2 will formalize)",
-  "status": "PROVISIONAL — answers drafted by Claude at scaffold time 2026-07-10; human to ratify at E0 gate",
+  "schema": "project-manifest.0 (draft \u2014 kit v2 will formalize)",
+  "status": "RATIFIED 2026-07-10 (user go-ahead at E0 gate)",
   "survey": {
-    "what_is_it": "app/pipeline — daily progress digest generator + publisher",
+    "what_is_it": "app/pipeline \u2014 daily progress digest generator + publisher",
     "architecture_rung": {
       "choice": 1,
-      "menu": ["1: single thread", "2: thread + subagents/verifier", "3: organ fleet"],
+      "menu": [
+        "1: single thread",
+        "2: thread + subagents/verifier",
+        "3: organ fleet"
+      ],
       "earned_by": "linear pipeline with a small surface; a fresh-context verifier may be added for golden-render review, but nothing here parallelizes usefully"
     },
     "domain_core_llm_must_not_own": "collection (git/traces/DECISIONS/ROADMAP/verify-result parsing), hash-ledger incrementality, FACTS schema, rendering, the narration fact-id checker, publish gating. AI only: narrative prose FROM the FACTS file (E3), fenced by the checker.",
     "oracle_shape": {
-      "goldens": "strict pinned outputs — golden FACTS from fixture repos, golden renders byte-stable, narration-checker fixtures",
+      "goldens": "strict pinned outputs \u2014 golden FACTS from fixture repos, golden renders byte-stable, narration-checker fixtures",
       "ci": "single-version smoke initially"
     },
     "second_implementation": false,
     "consumers_and_providers": {
-      "consumes": ["autonomous (STATUS surface contract — brief filed; degrading visibly until it ships)", "shared sweep primitive when extracted", "distillery lesson-highlights (deferred, needs D4)"],
-      "consumed_by": ["the owner's website (published digests)", "the owner (private ops view)"]
+      "consumes": [
+        "autonomous (STATUS surface contract \u2014 brief filed; degrading visibly until it ships)",
+        "shared sweep primitive when extracted",
+        "distillery lesson-highlights (deferred, needs D4)"
+      ],
+      "consumed_by": [
+        "the owner's website (published digests)",
+        "the owner (private ops view)"
+      ]
     },
     "parallel_audit_thread": false,
-    "knowledge_loop_tags": ["collector-parsing", "facts-schema", "render-pipeline", "publish-gates", "watched-repo-registry"],
+    "knowledge_loop_tags": [
+      "collector-parsing",
+      "facts-schema",
+      "render-pipeline",
+      "publish-gates",
+      "watched-repo-registry"
+    ],
     "lifespan_autonomy": {
       "lifespan": "long-lived (daily operational loop)",
       "autonomy_tier": "scheduled unattended collection+render OK from E2 (read-only + own-artifact writes); PUBLISHING human-gated per digest until auto-publish criteria are DECISIONS-recorded (E4+)"
