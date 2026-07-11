@@ -1,0 +1,11 @@
+{
+  "schema": "status.1",
+  "project": "distillery",
+  "ts": "2026-07-10T21:00:00Z",
+  "roadmap_phase": {"id": "D1", "title": "The stream (deterministic ingest)"},
+  "last_verify": {"target": "fast", "exit": 0, "git": "03a4317"},
+  "recent": {
+    "commits": [{"hash": "03a4317"}],
+    "lessons": ["not-a-lesson-id"]
+  }
+}

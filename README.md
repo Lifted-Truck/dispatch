@@ -9,7 +9,9 @@ human-gated publishing.
 ecosystem roadmap live in [autonomous](https://github.com/Lifted-Truck/autonomous)
 (`~/Documents/Claude/autonomous/`) — this project executes; that repo governs.*
 
-*Last verified current: 2026-07-10 (scaffold day — nothing built yet).*
+*Last verified current: 2026-07-10 (E1 collector built — registry layer,
+deterministic collector, `bin/collect`; gate evidence in
+traces/2026-07-10-e1-collector.md, ratification pending).*
 
 ## The pipeline
 
@@ -52,7 +54,8 @@ claim in a digest is traceable to a collected artifact.
 ## Where to start
 
 1. Read [ROADMAP.md](ROADMAP.md) — phases E0–E4 with gates. E1 (registry +
-   deterministic collector) is the open front.
+   deterministic collector) is built and awaiting gate ratification; run it
+   with `./bin/collect` (writes `facts/<date>.json`, ledger in `state/`).
 2. Read [CLAUDE.md](CLAUDE.md) §Domain for invariants and protected paths.
 3. Our brief against the standards repo:
    `autonomous/integrations/dispatch/brief.md`.

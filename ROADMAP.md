@@ -53,6 +53,18 @@
    against schema + example; inferred-vs-declared marking is the migration
    plan for repos without writers. Owed: contract-test fixtures for
    `status.1` (author during E1, file via the integrations channel).
+4. **E1 data design** (2026-07-10): FACTS schema `dispatch-facts.1` (global
+   sequential fact ids `F0001…`; per-fact `source: declared|inferred` plus
+   the evidence artifact; truncation is itself a fact — no silent caps).
+   Ledger `dispatch-ledger.1` diffs every run against the DAY-START
+   snapshot: same-day reruns regenerate the same file cumulatively
+   (idempotent, byte-stable replay); the first run of a new date rolls
+   day-start forward; a backwards date is refused. Watch config
+   `watch.json` (schema `dispatch-watch.1`) layers `public:` flags
+   (default false) over the canonical roster and pins the registry schema
+   and sweep-module path. Decision-3 owed item CLOSED: `status.1` fixtures
+   filed at `autonomous/integrations/dispatch/contract-tests-status1.md`
+   (ball: provider).
 
 ## Open questions (blocking, ask the human)
 

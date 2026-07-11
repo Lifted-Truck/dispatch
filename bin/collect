@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""collect — run one deterministic collection pass over the watched roster.
+
+The only place in the pipeline that reads the wall clock (to default
+--date); the core is date-parameterized and deterministic.
+"""
+
+import argparse
+import datetime
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import run  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="collect", description=__doc__)
+    ap.add_argument("--date", default=datetime.date.today().isoformat(),
+                    help="collection date YYYY-MM-DD (default: today)")
+    ap.add_argument("--watch", default=os.path.join(REPO, "watch.json"))
+    ap.add_argument("--ledger", default=os.path.join(REPO, "state", "ledger.json"))
+    ap.add_argument("--out", default=os.path.join(REPO, "facts"))
+    ap.add_argument("--no-update-ledger", action="store_true",
+                    help="replay mode: write FACTS but leave the ledger untouched")
+    args = ap.parse_args(argv)
+
+    try:
+        out_path = run.run(
+            args.watch, args.ledger, args.date, args.out,
+            update_ledger=not args.no_update_ledger,
+        )
+    except Exception as exc:  # visible failure, no stack noise for known errors
+        print("collect: %s" % exc, file=sys.stderr)
+        return 1
+    print(out_path)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

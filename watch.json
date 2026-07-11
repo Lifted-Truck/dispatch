@@ -1,0 +1,11 @@
+{
+  "schema": "dispatch-watch.1",
+  "registry": "~/Documents/Claude/autonomous/registry.json",
+  "registry_schema_pin": "ecosystem-registry.0",
+  "sweep_module": "~/Documents/Claude/autonomous/kit/sweep/sweep.py",
+  "status_contract_pin": "status.1",
+  "defaults": {
+    "public": false
+  },
+  "projects": {}
+}
