@@ -18,8 +18,8 @@ record() { # record <target> <exit_code>
 
 fast() {
   # ---- Layer-0: seconds, not minutes. CI-blocking. -------------------------
-  # E0 scaffold gate: structure + manifest + invariant sanity.
-  # E1 extends: ruff check . && pytest -q tests/unit
+  # Structure + manifest + invariant sanity, then lint + unit tests
+  # (extension ratified by the human 2026-07-11; ROADMAP decision 5).
   local ok=0
   for f in README.md CLAUDE.md ROADMAP.md project.manifest.json; do
     [ -f "$f" ] || { echo "verify[fast]: missing $f" >&2; ok=1; }
@@ -28,6 +28,11 @@ fast() {
     || { echo "verify[fast]: project.manifest.json is not valid JSON" >&2; ok=1; }
   grep -q "Facts before prose" CLAUDE.md \
     || { echo "verify[fast]: charter lost the facts-before-prose invariant" >&2; ok=1; }
+  local py=".venv/bin/python"; [ -x "$py" ] || py="python3"
+  "$py" -m ruff check . \
+    || { echo "verify[fast]: ruff failed (or is not installed)" >&2; ok=1; }
+  "$py" -m pytest -q tests/unit \
+    || { echo "verify[fast]: unit tests failed (or pytest not installed)" >&2; ok=1; }
   return $ok
 }
 

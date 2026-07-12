@@ -20,12 +20,13 @@
   declared). *Gate: two consecutive runs over the real project tree — second
   collects only the delta; FACTS replay byte-identical from the same inputs;
   a repo with zero activity produces an explicit "quiet" record, not an
-  absence.* **← current phase**
+  absence.* **CLOSED 2026-07-12** (human ratified; evidence in
+  traces/2026-07-10-e1-collector.md; built at 8f94a27).
 - **E2 — Renderer (deterministic).** Styled static digest from a FACTS file
   (template + CSS, self-contained HTML per the visual-first doctrine); a
   golden-render test pins the output for a fixture FACTS file. *Gate: golden
   render byte-stable; renders correctly with empty/quiet days; no network
-  dependencies in the page.*
+  dependencies in the page.* **← current phase**
 - **E3 — Narration (AI, fenced).** Model writes the day's narrative FROM the
   FACTS file only (prompt receives facts, not repo access); every prose claim
   must cite a fact id; a deterministic checker rejects narration containing
@@ -65,18 +66,23 @@
    and sweep-module path. Decision-3 owed item CLOSED: `status.1` fixtures
    filed at `autonomous/integrations/dispatch/contract-tests-status1.md`
    (ball: provider).
+5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
+   `ruff check .` and `pytest -q tests/unit` (project venv) after the
+   structural checks — a strengthening, applied with explicit approval per
+   the charter's protected-paths rule.
+6. **Public flags** (2026-07-12, human decision): ALL watched projects stay
+   `public: false` for now; revisit when E4 makes publishing real.
 
 ## Open questions (blocking, ask the human)
 
 - Website target: static-site generator? Which host/repo receives the
-  published page? (Determines E4's shape.)
-- Digest voice/format preferences (length, tone).
-- `public:` flags per watched project (which projects may appear in
-  published digests — layered in THIS repo's watch config over the canonical
-  roster; default `public: false` until the human flags otherwise).
+  published page? (Determines E4's shape. Needed by E4, not before.)
+- Digest voice/format preferences (length, tone). (Needed by E3.)
 
 ## Answered (moved from open questions)
 
+- **`public:` flags** (2026-07-12): keep every watched project private for
+  now (decision 6); the flag layer in watch.json is live and defaults false.
 - **Watch allowlist** (2026-07-10): the canonical ecosystem roster at
   `autonomous/registry.json` (autonomous Decision 14). dispatch layers
   per-project flags (`public:` etc.) in its own config over that roster —
