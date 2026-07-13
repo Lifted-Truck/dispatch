@@ -1,0 +1,33 @@
+{
+  "schema": "dispatch-facts.1",
+  "date": "2026-07-02",
+  "quiet_day": true,
+  "projects": [
+    {
+      "name": "alpha",
+      "path": "/fixtures/alpha",
+      "group": null,
+      "public": true,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {"git": true},
+      "quiet": true,
+      "facts": [
+        {"id": "F0001", "project": "alpha", "kind": "quiet", "data": {}, "source": "inferred", "evidence": "hash ledger (unchanged since day start)"}
+      ]
+    },
+    {
+      "name": "beta",
+      "path": "/fixtures/beta",
+      "group": "worlds",
+      "public": false,
+      "source": "declared",
+      "status_surface": "declared",
+      "surfaces": {"git": true},
+      "quiet": true,
+      "facts": [
+        {"id": "F0002", "project": "beta", "kind": "quiet", "data": {"declared_ts": "2026-07-02T21:00:00Z"}, "source": "declared", "evidence": "STATUS.json"}
+      ]
+    }
+  ]
+}

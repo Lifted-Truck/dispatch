@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "digests",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8737", "--directory", "digests"],
+      "port": 8737
+    }
+  ]
+}

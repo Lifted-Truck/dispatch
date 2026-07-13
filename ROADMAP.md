@@ -27,6 +27,14 @@
   golden-render test pins the output for a fixture FACTS file. *Gate: golden
   render byte-stable; renders correctly with empty/quiet days; no network
   dependencies in the page.* **← current phase**
+- **E2b — Roadmap roundup (deterministic).** A second render target, for
+  the human: a cross-project portfolio board — every watched project's
+  current phase, gate state, last-verify, and staleness, whether or not
+  anything changed today (state snapshot, not daily delta; needs a
+  collector snapshot mode, since FACTS carry phase facts only on change).
+  Added 2026-07-13 at the human's request. *Gate: golden-render
+  byte-stable; every roster project appears exactly once;
+  inferred-vs-declared marking carried through.*
 - **E3 — Narration (AI, fenced).** Model writes the day's narrative FROM the
   FACTS file only (prompt receives facts, not repo access); every prose claim
   must cite a fact id; a deterministic checker rejects narration containing

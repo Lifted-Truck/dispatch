@@ -1,0 +1,69 @@
+{
+  "schema": "dispatch-facts.1",
+  "date": "2026-07-01",
+  "quiet_day": false,
+  "projects": [
+    {
+      "name": "alpha",
+      "path": "/fixtures/alpha",
+      "group": null,
+      "public": true,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {"git": true, "claude_md": true, "verify": true},
+      "quiet": false,
+      "facts": [
+        {"id": "F0001", "project": "alpha", "kind": "phase", "data": {"id": "A2", "title": "Build the widget"}, "source": "inferred", "evidence": "ROADMAP.md"},
+        {"id": "F0002", "project": "alpha", "kind": "verify", "data": {"target": "full", "exit": 0, "git": "ab12cd3", "ts": "2026-07-01T10:00:00Z"}, "source": "inferred", "evidence": ".harness/last-verify.json"},
+        {"id": "F0003", "project": "alpha", "kind": "commit", "data": {"hash": "ab12cd3", "subject": "escape <script> & \"quotes\" properly", "basis": "since-last-run"}, "source": "inferred", "evidence": "git log"},
+        {"id": "F0004", "project": "alpha", "kind": "commit", "data": {"hash": "9f8e7d6", "subject": "add widget core", "basis": "since-last-run"}, "source": "inferred", "evidence": "git log"},
+        {"id": "F0005", "project": "alpha", "kind": "commits_truncated", "data": {"dropped": 3, "cap": 50}, "source": "inferred", "evidence": "git log"},
+        {"id": "F0006", "project": "alpha", "kind": "trace", "data": {"file": "2026-07-01-widget.md"}, "source": "inferred", "evidence": "traces/"},
+        {"id": "F0007", "project": "alpha", "kind": "decision", "data": {"number": "4"}, "source": "inferred", "evidence": "DECISIONS.md"}
+      ]
+    },
+    {
+      "name": "beta",
+      "path": "/fixtures/beta",
+      "group": "worlds",
+      "public": false,
+      "source": "declared",
+      "status_surface": "declared",
+      "surfaces": {"git": true, "claude_md": true, "verify": true},
+      "quiet": false,
+      "facts": [
+        {"id": "F0008", "project": "beta", "kind": "phase", "data": {"id": "B1", "title": "The stream", "gate_state": "open"}, "source": "declared", "evidence": "STATUS.json"},
+        {"id": "F0009", "project": "beta", "kind": "verify", "data": {"target": "fast", "exit": 1, "git": "77aa88b", "ts": "2026-07-01T09:00:00Z"}, "source": "declared", "evidence": "STATUS.json"},
+        {"id": "F0010", "project": "beta", "kind": "commit", "data": {"hash": "77aa88b", "subject": "wire the stream"}, "source": "declared", "evidence": "STATUS.json"},
+        {"id": "F0011", "project": "beta", "kind": "lesson", "data": {"id": "L0042"}, "source": "declared", "evidence": "STATUS.json"}
+      ]
+    },
+    {
+      "name": "gamma",
+      "path": "/fixtures/gamma",
+      "group": null,
+      "public": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {"git": true},
+      "quiet": true,
+      "facts": [
+        {"id": "F0012", "project": "gamma", "kind": "quiet", "data": {}, "source": "inferred", "evidence": "hash ledger (unchanged since day start)"}
+      ]
+    },
+    {
+      "name": "delta",
+      "path": "/fixtures/delta",
+      "group": null,
+      "public": false,
+      "source": "inferred",
+      "status_surface": "invalid",
+      "surfaces": {"git": true},
+      "quiet": false,
+      "facts": [
+        {"id": "F0013", "project": "delta", "kind": "changed", "data": {"detail": "fingerprint changed"}, "source": "inferred", "evidence": "hash ledger"},
+        {"id": "F0014", "project": "delta", "kind": "status_invalid", "data": {"errors": ["missing required field: quiet"]}, "source": "inferred", "evidence": "STATUS.json vs status.1"}
+      ]
+    }
+  ]
+}

@@ -56,7 +56,8 @@ claim in a digest is traceable to a collected artifact.
 1. Read [ROADMAP.md](ROADMAP.md) — phases E0–E4 with gates. E1 (registry +
    collector) is closed; run it with `./bin/collect` (writes
    `facts/<date>.json`, ledger in `state/`). E2 (deterministic renderer)
-   is the open front.
+   is built and awaiting gate ratification: `./bin/render facts/<date>.json`
+   writes `digests/<date>.html`, a self-contained page.
 2. Read [CLAUDE.md](CLAUDE.md) §Domain for invariants and protected paths.
 3. Our brief against the standards repo:
    `autonomous/integrations/dispatch/brief.md`.

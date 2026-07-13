@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dispatch — 2026-07-01</title>
+<style>
+:root {
+  --paper: #f6f8f7; --ink: #1c2422; --muted: #5b6a66; --line: #d8e0dd;
+  --card: #ffffff; --accent: #0f6b63; --accent-ink: #0a4f49;
+  --good: #1a7a3c; --good-bg: #e5f3ea; --bad: #a33a2a; --bad-bg: #f6e4e0;
+  --warn: #8a5a00; --warn-bg: #f6edd8; --code-bg: #eef2f0;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: "Seravek", "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #151a19; --ink: #e4eae8; --muted: #93a39e; --line: #2c3634;
+    --card: #1d2422; --accent: #4fb3a7; --accent-ink: #6ecabe;
+    --good: #5cc981; --good-bg: #1a2f22; --bad: #e08573; --bad-bg: #33201b;
+    --warn: #d9a94a; --warn-bg: #322a17; --code-bg: #10514c22;
+  }
+}
+html { background: var(--paper); }
+body { font-family: var(--sans); color: var(--ink); background: var(--paper);
+  margin: 0; padding: 2.5rem 1.25rem 4rem; line-height: 1.55; }
+main { max-width: 46rem; margin: 0 auto; }
+.eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 .5rem; }
+h1 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 1rem; font-weight: 650; }
+.stats { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.8rem; }
+.stat { flex: 1 1 8rem; background: var(--card); border: 1px solid var(--line);
+  border-radius: 6px; padding: .55rem .75rem; }
+.stat .n { font-family: var(--mono); font-size: 1.2rem; font-weight: 650;
+  display: block; font-variant-numeric: tabular-nums; }
+.stat .l { font-size: .72rem; color: var(--muted); }
+.quietday { background: var(--card); border: 1px solid var(--line);
+  border-radius: 6px; padding: 1.2rem 1.4rem; margin: 0 0 1.6rem; }
+.quietday b { display: block; font-size: 1.05rem; margin-bottom: .2rem; }
+.quietday span { color: var(--muted); font-size: .9rem; }
+.project { background: var(--card); border: 1px solid var(--line);
+  border-radius: 6px; padding: 1rem 1.2rem; margin: 0 0 .9rem; }
+.phead { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem;
+  margin-bottom: .5rem; }
+.pname { font-size: 1.05rem; font-weight: 650; margin: 0; }
+.badge { font-family: var(--mono); font-size: .66rem; letter-spacing: .06em;
+  text-transform: uppercase; padding: .14rem .45rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted); }
+.badge.declared { color: var(--accent-ink); border-color: var(--accent); }
+.badge.warn { color: var(--warn); background: var(--warn-bg); border-color: transparent; }
+ul.facts { list-style: none; margin: 0; padding: 0; }
+ul.facts li { padding: .28rem 0; border-top: 1px solid var(--line);
+  font-size: .9rem; display: flex; gap: .6rem; align-items: baseline; }
+ul.facts li:first-child { border-top: none; }
+.fid { font-family: var(--mono); font-size: .66rem; color: var(--muted);
+  flex: 0 0 3.2rem; }
+.kind { font-family: var(--mono); font-size: .7rem; color: var(--accent);
+  flex: 0 0 5.2rem; text-transform: uppercase; letter-spacing: .05em; }
+.fbody { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+code { font-family: var(--mono); font-size: .84em; background: var(--code-bg);
+  padding: .08em .3em; border-radius: 3px; }
+.pass { color: var(--good); font-weight: 650; }
+.fail { color: var(--bad); font-weight: 650; }
+h2 { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin: 2rem 0 .8rem; font-weight: 600;
+  display: flex; align-items: center; gap: .7rem; }
+h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.quietlist { display: flex; flex-wrap: wrap; gap: .4rem; }
+.quietlist span { font-family: var(--mono); font-size: .74rem;
+  border: 1px solid var(--line); border-radius: 999px; padding: .2rem .55rem;
+  color: var(--muted); background: var(--card); }
+.foot { margin-top: 2.6rem; font-size: .74rem; color: var(--muted);
+  font-family: var(--mono); }
+</style></head><body><main>
+<p class="eyebrow">daily dispatch · deterministic digest</p>
+<h1>July 1, 2026</h1>
+<div class="stats"><div class="stat"><span class="n">3</span><span class="l">projects active</span></div><div class="stat"><span class="n">1</span><span class="l">projects quiet</span></div><div class="stat"><span class="n">14</span><span class="l">facts collected</span></div></div>
+<h2>Activity</h2>
+<article class="project"><div class="phead"><h3 class="pname">alpha</h3><span class="badge ">inferred</span><span class="badge">public</span></div><ul class="facts"><li><span class="fid">F0001</span><span class="kind">phase</span><span class="fbody"><b>A2</b> — Build the widget</span></li><li><span class="fid">F0002</span><span class="kind">verify</span><span class="fbody">verify <code>full</code> <span class="pass">green</span> at <code>ab12cd3</code></span></li><li><span class="fid">F0003</span><span class="kind">commit</span><span class="fbody"><code>ab12cd3</code> escape &lt;script&gt; &amp; &quot;quotes&quot; properly</span></li><li><span class="fid">F0004</span><span class="kind">commit</span><span class="fbody"><code>9f8e7d6</code> add widget core</span></li><li><span class="fid">F0005</span><span class="kind">commits_truncated</span><span class="fbody">…and 3 more commits beyond the 50-commit window</span></li><li><span class="fid">F0006</span><span class="kind">trace</span><span class="fbody">trace <code>2026-07-01-widget.md</code></span></li><li><span class="fid">F0007</span><span class="kind">decision</span><span class="fbody">decision #4 recorded</span></li></ul></article>
+<article class="project"><div class="phead"><h3 class="pname">beta</h3><span class="badge declared">declared</span><span class="badge">private</span></div><ul class="facts"><li><span class="fid">F0008</span><span class="kind">phase</span><span class="fbody"><b>B1</b> — The stream</span></li><li><span class="fid">F0009</span><span class="kind">verify</span><span class="fbody">verify <code>fast</code> <span class="fail">red (exit 1)</span> at <code>77aa88b</code></span></li><li><span class="fid">F0010</span><span class="kind">commit</span><span class="fbody"><code>77aa88b</code> wire the stream</span></li><li><span class="fid">F0011</span><span class="kind">lesson</span><span class="fbody">lesson <code>L0042</code></span></li></ul></article>
+<article class="project"><div class="phead"><h3 class="pname">delta</h3><span class="badge ">inferred</span><span class="badge warn">status off-contract</span><span class="badge">private</span></div><ul class="facts"><li><span class="fid">F0013</span><span class="kind">changed</span><span class="fbody">activity fingerprint changed (fingerprint changed)</span></li><li><span class="fid">F0014</span><span class="kind">status_invalid</span><span class="fbody">STATUS.json present but off-contract: missing required field: quiet</span></li></ul></article>
+<h2>Quiet — collected, unchanged</h2>
+<div class="quietlist"><span>gamma</span></div>
+<p class="foot">rendered deterministically from dispatch-facts.1 · 2026-07-01 · every item cites its fact id</p>
+</main></body></html>
