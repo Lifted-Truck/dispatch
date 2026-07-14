@@ -79,8 +79,11 @@ def _project_record(project, prev, seq):
 
     quiet = bool(facts) and all(f["kind"] == "quiet" for f in facts)
     return {
+        # No absolute path: `name` is the portable identifier (basename or
+        # group/child). Persisting sweep's absolute path would bake the local
+        # username + machine layout into an artifact bound for a public
+        # remote. See ROADMAP decision 7.
         "name": project["name"],
-        "path": project["path"],
         "group": project["group"],
         "public": project["public"],
         "source": source,

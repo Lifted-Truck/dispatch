@@ -80,6 +80,21 @@
    the charter's protected-paths rule.
 6. **Public flags** (2026-07-12, human decision): ALL watched projects stay
    `public: false` for now; revisit when E4 makes publishing real.
+7. **Portable FACTS, no committed generated outputs** (2026-07-13, security
+   audit): (a) `facts/` and `digests/` are generated, reproducible outputs —
+   gitignored (root-anchored) and untracked, like `state/`; nothing
+   generated is committed to the public remote. (b) FACTS carry NO absolute
+   path — the sweep primitive returns machine-absolute paths, which bake the
+   local username + directory layout into a public artifact. `name`
+   (basename or `group/child`) is the portable identifier; the absolute path
+   is dropped from the FACTS record and kept as runtime-only probe input.
+   Guarded by `test_facts_carry_no_absolute_path`. Adopts the *principle*
+   from distillery's still-open D1 question (repo-relative, resolve before
+   data persists) as dispatch's own ruling — distillery has not itself
+   decided (its ROADMAP open question stands); no cross-project ruling was
+   borrowed. Local history (commits 8f94a27, 13f6a17) still contains the old
+   absolute-path blobs but is UNPUSHED (origin/main at df6211e) — history
+   rewrite offered to the human, not done unilaterally (charter git gate).
 
 ## Open questions (blocking, ask the human)
 

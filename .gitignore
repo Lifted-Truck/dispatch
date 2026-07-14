@@ -3,6 +3,8 @@
 .DS_Store
 .venv/
 state/
+/facts/
+/digests/
 __pycache__/
 .pytest_cache/
 .ruff_cache/

@@ -5,7 +5,6 @@
   "projects": [
     {
       "name": "alpha",
-      "path": "/fixtures/alpha",
       "group": null,
       "public": true,
       "source": "inferred",
@@ -18,7 +17,6 @@
     },
     {
       "name": "beta",
-      "path": "/fixtures/beta",
       "group": "worlds",
       "public": false,
       "source": "declared",

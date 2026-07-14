@@ -152,6 +152,21 @@ def test_commit_truncation_is_visible():
     assert "commits_truncated" in kinds
 
 
+def test_facts_carry_no_absolute_path():
+    # Regression guard (ROADMAP decision 7): the persisted FACTS artifact is
+    # bound for a public remote and must never bake in an absolute filesystem
+    # path. `name` is the portable identifier; no `path` key, no leaked root.
+    observed = [_project(_obs(), "a"), _project(_obs(), "b")]
+    doc = facts.build("2026-07-10", observed, {})
+    for rec in doc["projects"]:
+        assert "path" not in rec
+        assert rec["name"] in ("a", "b")
+    blob = facts.serialize(doc)
+    assert "/x/" not in blob  # the fake absolute path fed via _project
+    assert "/Users/" not in blob
+    assert "/home/" not in blob
+
+
 def test_fact_ids_globally_sequential_and_serialization_stable():
     observed = [_project(_obs(), "a"), _project(_obs(), "b")]
     doc = facts.build("2026-07-10", observed, {})
