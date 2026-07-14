@@ -95,6 +95,9 @@
    borrowed. Local history (commits 8f94a27, 13f6a17) still contains the old
    absolute-path blobs but is UNPUSHED (origin/main at df6211e) — history
    rewrite offered to the human, not done unilaterally (charter git gate).
+   **Rewrite executed 2026-07-13** (human-approved): filter-branch purged
+   both files from `df6211e..HEAD`; the four commits were remapped
+   (see traces/2026-07-13-history-rewrite.md) and the leaked blob is gone.
 
 ## Open questions (blocking, ask the human)
 

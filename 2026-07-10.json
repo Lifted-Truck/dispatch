@@ -1,0 +1,3711 @@
+{
+  "date": "2026-07-10",
+  "projects": [
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0001",
+          "kind": "baseline",
+          "project": "Adobe",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "Adobe",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0002",
+          "kind": "baseline",
+          "project": "Artifacts",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "Artifacts",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "fa68661",
+            "subject": "Post-pilot small fixes: node_update, objective_update, HEAD\u2192GET verify fallback"
+          },
+          "evidence": "git log",
+          "id": "F0003",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "20eb4dd",
+            "subject": "Merge pull request #20 from Lifted-Truck/edge-model-v2"
+          },
+          "evidence": "git log",
+          "id": "F0004",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "bd2ce3e",
+            "subject": "Edge model v2 design note: the cost-of-omission relation stack"
+          },
+          "evidence": "git log",
+          "id": "F0005",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f4c0dc1",
+            "subject": "Merge pull request #19 from Lifted-Truck/v0.2-design-direction"
+          },
+          "evidence": "git log",
+          "id": "F0006",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a391513",
+            "subject": "Add HEAD->GET fallback to post-pilot backlog"
+          },
+          "evidence": "git log",
+          "id": "F0007",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "11aa9ce",
+            "subject": "Capture v0.2 design direction: deepen confabulation resistance"
+          },
+          "evidence": "git log",
+          "id": "F0008",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b031674",
+            "subject": "Merge pull request #18 from Lifted-Truck/v0.1-retrospective"
+          },
+          "evidence": "git log",
+          "id": "F0009",
+          "kind": "commit",
+          "project": "Portolan",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0010",
+          "kind": "baseline",
+          "project": "Portolan",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "Portolan",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/Portolan.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0011",
+          "kind": "baseline",
+          "project": "ableton-live-extensions",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "ableton-live-extensions",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0012",
+          "kind": "baseline",
+          "project": "agent-knowledge-loop",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "agent-knowledge-loop",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/agent-knowledge-loop.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "no-git",
+            "target": "full",
+            "ts": "2026-07-13T20:19:47Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0013",
+          "kind": "verify",
+          "project": "ai-integration-methodology",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "1565b38",
+            "subject": "M0 scaffold: methodology.md (moved in) + harness (doc-lint verify, roadmap, decisions, knowledge loop)"
+          },
+          "evidence": "git log",
+          "id": "F0014",
+          "kind": "commit",
+          "project": "ai-integration-methodology",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 4,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0015",
+          "kind": "baseline",
+          "project": "ai-integration-methodology",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "ai-integration-methodology",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": false,
+        "manifest": true,
+        "remote": "https://github.com/Lifted-Truck/ai-integration-methodology.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "9bd7afb",
+            "subject": "roadmap: RT-4 main-view capability done; per-numeral wiring blocked on FIG\u2192sheet"
+          },
+          "evidence": "git log",
+          "id": "F0016",
+          "kind": "commit",
+          "project": "attest",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "99bf2ca",
+            "subject": "RT-4 (main view): companion figures in the evidence-view document pane"
+          },
+          "evidence": "git log",
+          "id": "F0017",
+          "kind": "commit",
+          "project": "attest",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3eb74d6",
+            "subject": "knowledge-loop: L0003 \u2014 patent figure thumbnail-vs-full-res gotcha"
+          },
+          "evidence": "git log",
+          "id": "F0018",
+          "kind": "commit",
+          "project": "attest",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3a0382e",
+            "subject": "RT-4 (visible layer): fetch drawing sheets + a figures review artifact"
+          },
+          "evidence": "git log",
+          "id": "F0019",
+          "kind": "commit",
+          "project": "attest",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8e9f2f2",
+            "subject": "RT-4 (engine core): figures, FIG references, reference numerals (PE-1 remainder)"
+          },
+          "evidence": "git log",
+          "id": "F0020",
+          "kind": "commit",
+          "project": "attest",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0021",
+          "kind": "baseline",
+          "project": "attest",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "attest",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/attest.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0022",
+          "kind": "baseline",
+          "project": "audiology",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "audiology",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "23ab88d",
+            "target": "fast",
+            "ts": "2026-07-13T23:56:57Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0023",
+          "kind": "verify",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "61763b7",
+            "subject": "Decision 24: Fable rule single-sourced in DOCTRINE.md; remove redundant global-file line"
+          },
+          "evidence": "git log",
+          "id": "F0024",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "23ab88d",
+            "subject": "Model routing \u2192 DOCTRINE tenet + Fable-subagent prohibition (Decision 23)"
+          },
+          "evidence": "git log",
+          "id": "F0025",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "cb53ce5",
+            "subject": "INSTALL-GLOBAL: genericize username reference (privacy)"
+          },
+          "evidence": "git log",
+          "id": "F0026",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "261e69e",
+            "subject": "README: fix audit findings \u2014 stale decision count (10\u219222), malformed sibling links, machine-local ops moved to ONBOARDING, denser opening rewritten, 39/13 claim now cites its source; re-verified 2026-07-13"
+          },
+          "evidence": "git log",
+          "id": "F0027",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "60aef43",
+            "subject": "Record licensing decisions (Decision 22): public showcases PolyForm NC; private commercial candidates unlicensed until productization"
+          },
+          "evidence": "git log",
+          "id": "F0028",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "6d59046",
+            "subject": "Visibility policy (Decision 21) + sweep --visibility check + harness-grader private correction"
+          },
+          "evidence": "git log",
+          "id": "F0029",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e35da18",
+            "subject": "ONBOARDING: register ai-integration-methodology repo (remote linked)"
+          },
+          "evidence": "git log",
+          "id": "F0030",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "40a0872",
+            "subject": "Harvest human-AI epistemics grounding (DELEGATE-52 + failure taxonomy) + doctrine tenet (Decision 20)"
+          },
+          "evidence": "git log",
+          "id": "F0031",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b76977f",
+            "subject": "/spinup --composite adopted (Decision 19): composite-project procedure canonical in ONBOARDING; Orrery is the worked example"
+          },
+          "evidence": "git log",
+          "id": "F0032",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "31dd96f",
+            "subject": "sweep: report git remote (fixes misleading local-only reads); narrow except + regression test"
+          },
+          "evidence": "git log",
+          "id": "F0033",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "584b978",
+            "subject": "Retrofit gotcha folded into commands: chmod +x verify (Write drops exec bit)"
+          },
+          "evidence": "git log",
+          "id": "F0034",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e68ec6d",
+            "subject": "/retrofit command: catch existing repos up to the scaffolding (gap survey, inferred manifest, non-destructive apply)"
+          },
+          "evidence": "git log",
+          "id": "F0035",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "aae9552",
+            "subject": "Decision 18: Opus for all judgment-bearing roles (top + mid), not just apex"
+          },
+          "evidence": "git log",
+          "id": "F0036",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "efd362e",
+            "subject": "Interim model routing (Decision 17): Opus leads, Sonnet subagents, Haiku verifier/scout"
+          },
+          "evidence": "git log",
+          "id": "F0037",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "016982a",
+            "subject": "Fleet reviewed as conductor prior art; Decision 16: model-tier selection human-gated"
+          },
+          "evidence": "git log",
+          "id": "F0038",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c8f1ce0",
+            "subject": "Merge pull request #1 from Lifted-Truck/landscape-audit/2026-07"
+          },
+          "evidence": "git log",
+          "id": "F0039",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b82b1b9",
+            "subject": "Landscape audit 2026-07: first-run proposal + bibliography append"
+          },
+          "evidence": "git log",
+          "id": "F0040",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "fa22916",
+            "subject": "/spinup path optional (cwd default); visual-first woven into charter template + residency rules; audit prompt: push preflight + salvage rule"
+          },
+          "evidence": "git log",
+          "id": "F0041",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "121649c",
+            "subject": "Mailbox intake: distillery contract-tests index; gitignore .harness/ (machine state)"
+          },
+          "evidence": "git log",
+          "id": "F0042",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c6d07d7",
+            "subject": "Mailbox intake: contract-test fixtures from distillery (distillery-002) and dispatch (status.1)"
+          },
+          "evidence": "git log",
+          "id": "F0043",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "02ee5d7",
+            "subject": "Spin-up trigger made structural: /spinup command + doctrine tenet + install step"
+          },
+          "evidence": "git log",
+          "id": "F0044",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e02cb62",
+            "subject": "Landscape audit: cloud routine is live + canonical; local task retired; blockage resilience added to prompt"
+          },
+          "evidence": "git log",
+          "id": "F0045",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "54001f0",
+            "subject": "routines/: cloud variant of the landscape-audit prompt + example Actions workflow"
+          },
+          "evidence": "git log",
+          "id": "F0046",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "9346ca4",
+            "subject": "Landscape audit scheduled: monthly-landscape-audit routine, 10th monthly"
+          },
+          "evidence": "git log",
+          "id": "F0047",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f068447",
+            "subject": "Landscape audit: recommend cloud routine (PR = staging buffer); cloud/local boundary rule"
+          },
+          "evidence": "git log",
+          "id": "F0048",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "9886a5d",
+            "subject": "Answer both briefs: ship library-entry.1 + status.1 contracts and the sweep primitive"
+          },
+          "evidence": "git log",
+          "id": "F0049",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "7184f5b",
+            "subject": "Ecosystem registry (canonical allowlist, Decision 14); track remotes live in ONBOARDING"
+          },
+          "evidence": "git log",
+          "id": "F0050",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "86dc942",
+            "subject": "ONBOARDING.md: replication + arrival guide for humans and agents (Decision 13)"
+          },
+          "evidence": "git log",
+          "id": "F0051",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "d1fee8a",
+            "subject": "Ecosystem tracks roadmap; intake briefs from distillery + dispatch; Decision 12"
+          },
+          "evidence": "git log",
+          "id": "F0052",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "88abfc2",
+            "subject": "Memory loops default-on + two-pool global memory (Decision 11); digest publisher as consumer"
+          },
+          "evidence": "git log",
+          "id": "F0053",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "7d2caaf",
+            "subject": "Dated research bibliography + landscape-audit loop design (ROADMAP deferred)"
+          },
+          "evidence": "git log",
+          "id": "F0054",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c2b03e9",
+            "subject": "Robust README (full orientation doc), global-install guide, spin-up survey adopted"
+          },
+          "evidence": "git log",
+          "id": "F0055",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "096c681",
+            "subject": "Doctrine: architecture menu (multi-agent never default) + living-README clarity standard"
+          },
+          "evidence": "git log",
+          "id": "F0056",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "4af8e5e",
+            "subject": "Point scaffold prompt at canonical paths"
+          },
+          "evidence": "git log",
+          "id": "F0057",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "550a9a3",
+            "subject": "Fix kit-v1 archive: snapshot as plain files, not embedded gitlink"
+          },
+          "evidence": "git log",
+          "id": "F0058",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3726f66",
+            "subject": "Consolidate infrastructure corpus into canonical repo"
+          },
+          "evidence": "git log",
+          "id": "F0059",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "5e072ce",
+            "subject": "Infrastructure design synthesis: research-backed autonomous paradigm"
+          },
+          "evidence": "git log",
+          "id": "F0060",
+          "kind": "commit",
+          "project": "autonomous",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 24,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0061",
+          "kind": "baseline",
+          "project": "autonomous",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "autonomous",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/autonomous.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0062",
+          "kind": "baseline",
+          "project": "babysynth",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "babysynth",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/babysynth",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0063",
+          "kind": "baseline",
+          "project": "claude-code-best-practices",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "claude-code-best-practices",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "id": "E2",
+            "title": "Renderer (deterministic)"
+          },
+          "evidence": "ROADMAP.md",
+          "id": "F0064",
+          "kind": "phase",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "exit": 0,
+            "git": "13f6a17",
+            "target": "fast",
+            "ts": "2026-07-13T20:55:11Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0065",
+          "kind": "verify",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "13f6a17",
+            "subject": "E2: deterministic digest renderer + golden renders; E2b (roadmap roundup) added to ROADMAP"
+          },
+          "evidence": "git log",
+          "id": "F0066",
+          "kind": "commit",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f537f4a",
+            "subject": "Close E1 (ratified); extend verify gate (ruff+pytest, decision 5); public flags stay false (decision 6); E2 open"
+          },
+          "evidence": "git log",
+          "id": "F0067",
+          "kind": "commit",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8f94a27",
+            "subject": "E1: registry layer + deterministic collector (gate evidence in trace)"
+          },
+          "evidence": "git log",
+          "id": "F0068",
+          "kind": "commit",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "df6211e",
+            "subject": "Close E0 (ratified); pin status.1 + sweep primitive; E1 open"
+          },
+          "evidence": "git log",
+          "id": "F0069",
+          "kind": "commit",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "cd17d73",
+            "subject": "Watch allowlist answered: canonical roster at autonomous/registry.json; public flags layer here"
+          },
+          "evidence": "git log",
+          "id": "F0070",
+          "kind": "commit",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "ff085ef",
+            "subject": "E0 scaffold: charter, roadmap, provisional manifest, harness"
+          },
+          "evidence": "git log",
+          "id": "F0071",
+          "kind": "commit",
+          "project": "dispatch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 6,
+            "traces": 3
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0072",
+          "kind": "baseline",
+          "project": "dispatch",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "dispatch",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": false,
+        "manifest": true,
+        "remote": "https://github.com/Lifted-Truck/dispatch.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "id": "D2",
+            "title": "Stream operations"
+          },
+          "evidence": "ROADMAP.md",
+          "id": "F0073",
+          "kind": "phase",
+          "project": "distillery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "exit": 0,
+            "git": "69ca0f5",
+            "target": "fast",
+            "ts": "2026-07-13T23:55:43Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0074",
+          "kind": "verify",
+          "project": "distillery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "69ca0f5",
+            "subject": "Close D1: deterministic append-only stream ingest (machinery)"
+          },
+          "evidence": "git log",
+          "id": "F0075",
+          "kind": "commit",
+          "project": "distillery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "d1cc940",
+            "subject": "Close D0 (ratified); pin library-entry.1 + sweep primitive; D1 open"
+          },
+          "evidence": "git log",
+          "id": "F0076",
+          "kind": "commit",
+          "project": "distillery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f1554cf",
+            "subject": "Sweep scope answered: canonical roster at autonomous/registry.json"
+          },
+          "evidence": "git log",
+          "id": "F0077",
+          "kind": "commit",
+          "project": "distillery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "03a4317",
+            "subject": "D0 scaffold: charter, roadmap, provisional manifest, harness"
+          },
+          "evidence": "git log",
+          "id": "F0078",
+          "kind": "commit",
+          "project": "distillery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 10,
+            "traces": 1
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0079",
+          "kind": "baseline",
+          "project": "distillery",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "distillery",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": false,
+        "manifest": true,
+        "remote": "https://github.com/Lifted-Truck/distillery.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "212e646",
+            "target": "full",
+            "ts": "2026-07-13T03:09:10Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0080",
+          "kind": "verify",
+          "project": "harness-grader",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f8c86e6",
+            "subject": "Correct confidentiality note: repo is PRIVATE, not public (verified via gh)"
+          },
+          "evidence": "git log",
+          "id": "F0081",
+          "kind": "commit",
+          "project": "harness-grader",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "4188531",
+            "subject": "Harness retrofit: verify (wraps unittest suite) + ROADMAP + DECISIONS + traces + knowledge loop + manifest + .claude mechanical layer"
+          },
+          "evidence": "git log",
+          "id": "F0082",
+          "kind": "commit",
+          "project": "harness-grader",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 5,
+            "traces": 1
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0083",
+          "kind": "baseline",
+          "project": "harness-grader",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "harness-grader",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": true,
+        "remote": "https://github.com/Lifted-Truck/harness-grader.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0084",
+          "kind": "baseline",
+          "project": "krissify",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "krissify",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0085",
+          "kind": "baseline",
+          "project": "life-os",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "life-os",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0086",
+          "kind": "baseline",
+          "project": "master-harness",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "master-harness",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0087",
+          "kind": "baseline",
+          "project": "microwaves",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "microwaves",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "d6f02c7",
+            "subject": "Add bottle provenance atlas (GIS tool for wines & liquors)"
+          },
+          "evidence": "git log",
+          "id": "F0088",
+          "kind": "commit",
+          "project": "monarch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c157d7d",
+            "subject": "README: add command-line build & run instructions"
+          },
+          "evidence": "git log",
+          "id": "F0089",
+          "kind": "commit",
+          "project": "monarch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "74b8616",
+            "subject": "Add provenance-referenced training deck and interactive onboarding app"
+          },
+          "evidence": "git log",
+          "id": "F0090",
+          "kind": "commit",
+          "project": "monarch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "96023da",
+            "subject": "Freeze founding documents; add source registry; scrap outdated flashcards jsx"
+          },
+          "evidence": "git log",
+          "id": "F0091",
+          "kind": "commit",
+          "project": "monarch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8d0c63d",
+            "subject": "Initial commit: menu training flashcards app"
+          },
+          "evidence": "git log",
+          "id": "F0092",
+          "kind": "commit",
+          "project": "monarch",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0093",
+          "kind": "baseline",
+          "project": "monarch",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "monarch",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/monarch.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0094",
+          "kind": "baseline",
+          "project": "morphos",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "morphos",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/morphos.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0095",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Catena",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Catena",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/catena.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0096",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Curvature",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Curvature",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "git@github.com:Lifted-Truck/curvature.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0097",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Limen",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Limen",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/limen.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0098",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Morphogen",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Morphogen",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/morphogen.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "ff82929",
+            "stage": "O1-core-build",
+            "target": "fast",
+            "ts": "2026-07-13T23:14:00Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0099",
+          "kind": "verify",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c9db390",
+            "subject": "O1c: MIDI-out routing (plugin-API bus + CoreMIDI virtual port) + audio toggle"
+          },
+          "evidence": "git log",
+          "id": "F0100",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "ff82929",
+            "subject": "O3: Measured + Probable Euclid engines as organs (rung-3 in practice)"
+          },
+          "evidence": "git log",
+          "id": "F0101",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e2970c4",
+            "subject": "O2: Elastic Euclid engine (IEngine) \u2014 seam proven, rung-2\u21923 escalation fires"
+          },
+          "evidence": "git log",
+          "id": "F0102",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "dc8ce41",
+            "subject": "O1b: JUCE VST3/AU/Standalone shell over orrery_core (auval SUCCEEDED)"
+          },
+          "evidence": "git log",
+          "id": "F0103",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "df8bf9d",
+            "subject": "O1 studio-shell core (framework-free) + O0 ratification"
+          },
+          "evidence": "git log",
+          "id": "F0104",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "1ca753c",
+            "subject": "engines/ reorg + ingest 3 new engines (probable, torus, kuramoto)"
+          },
+          "evidence": "git log",
+          "id": "F0105",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e29b393",
+            "subject": "Prepare for more engines: monorepo ruling (DECISIONS #6), engine intake template + procedure, verify flags unregistered territory dirs"
+          },
+          "evidence": "git log",
+          "id": "F0106",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f030d9a",
+            "subject": "O0 scaffold: composite umbrella (shell + 3 engine territories) over the IEngine contract"
+          },
+          "evidence": "git log",
+          "id": "F0107",
+          "kind": "commit",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 15,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0108",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Orrery",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Orrery",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": true,
+        "remote": "https://github.com/Lifted-Truck/Orrery.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a9c1f3b",
+            "subject": "Research report: Sonnet verification pass (16/20 confirmed, no Fable)"
+          },
+          "evidence": "git log",
+          "id": "F0109",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3011a93",
+            "subject": "Path audition: silent scan, sound only from held notes (Julian's call)"
+          },
+          "evidence": "git log",
+          "id": "F0110",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "368a770",
+            "subject": "Roadmap: basemap/locator overlay, place+coordinate search, GPS-history import"
+          },
+          "evidence": "git log",
+          "id": "F0111",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "7852e40",
+            "subject": "GIS modulation-source research report (partial: verify pass spend-limited)"
+          },
+          "evidence": "git log",
+          "id": "F0112",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3cd9e37",
+            "subject": "Polyphonic keyboard MIDI (Ableton layout) + ADSR; geo-mod-matrix vision in roadmap"
+          },
+          "evidence": "git log",
+          "id": "F0113",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "56e4596",
+            "subject": "Live audio during frame rotation: AudioWorklet voice with gap-free table swap"
+          },
+          "evidence": "git log",
+          "id": "F0114",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "47330a9",
+            "subject": "Formalize read lens into core (D13): sidecar v3 carries lensMix"
+          },
+          "evidence": "git log",
+          "id": "F0115",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "6b32790",
+            "subject": "Revert path to the baked model + smooth spline; fixes frozen audio"
+          },
+          "evidence": "git log",
+          "id": "F0116",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "4ab2fcb",
+            "subject": "Path redesign: frame travels path w/ internal morph + position; loop, handles; lens-mix, LFO shapes"
+          },
+          "evidence": "git log",
+          "id": "F0117",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "4a7bf35",
+            "subject": "Waveform detail: slope read-lens; rotation 0\u2013360"
+          },
+          "evidence": "git log",
+          "id": "F0118",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b34a92f",
+            "subject": "Map morph-line, zoom-follows-map, path perpendicular to tangent"
+          },
+          "evidence": "git log",
+          "id": "F0119",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "491cd47",
+            "subject": "Wavetable morph scrubber + live continuous rotation"
+          },
+          "evidence": "git log",
+          "id": "F0120",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "5109704",
+            "subject": "Phase 1c: path mode (D12) \u2014 draw a path, box travels it, morph scrubber"
+          },
+          "evidence": "git log",
+          "id": "F0121",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "86419d6",
+            "subject": "Phase 1d: in-app audition voice \u2014 hear the place you're framing"
+          },
+          "evidence": "git log",
+          "id": "F0122",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "35ee421",
+            "subject": "Phase 1c: map UI slice \u2014 MapLibre + live in-browser render + frame overlay"
+          },
+          "evidence": "git log",
+          "id": "F0123",
+          "kind": "commit",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0124",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Place",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Place",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/Place.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0125",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Plexus",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Plexus",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/plexus.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "3f703ca",
+            "target": "fast",
+            "ts": "2026-07-13T22:13:40Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0126",
+          "kind": "verify",
+          "project": "synthetic-worlds/Residuum",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e41e4a3",
+            "subject": "trace: record spin-up scaffolding provenance"
+          },
+          "evidence": "git log",
+          "id": "F0127",
+          "kind": "commit",
+          "project": "synthetic-worlds/Residuum",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3f703ca",
+            "subject": "scaffold: RESIDUUM spin-up (survey \u2192 manifest \u2192 harness, Phase 0)"
+          },
+          "evidence": "git log",
+          "id": "F0128",
+          "kind": "commit",
+          "project": "synthetic-worlds/Residuum",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 1
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0129",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Residuum",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Residuum",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": true,
+        "remote": null,
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0130",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Sympath",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Sympath",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/sympath.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0131",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Tensegrity",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Tensegrity",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b80ae2b",
+            "subject": "ROADMAP: mark Phase L.2 (live-observe preview) shipped"
+          },
+          "evidence": "git log",
+          "id": "F0132",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "38a3b03",
+            "subject": "Phase L.2: live-observe preview \u2014 pin the visualizer, regenerate on control change"
+          },
+          "evidence": "git log",
+          "id": "F0133",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "57be0d4",
+            "subject": "ROADMAP: Phase L (control observability \u2014 empirical knob-characterization harness + live-observe preview) + pre-gen circle-of-fifths journey editor under Phase F"
+          },
+          "evidence": "git log",
+          "id": "F0134",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "2ba2cd7",
+            "subject": "Fix: single-column playground hid Generate + lower controls behind the visualizer"
+          },
+          "evidence": "git log",
+          "id": "F0135",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a0d92df",
+            "subject": "ROADMAP: Phase J \u2014 record the shipped hybrid arbiter + cadential_return (assert + validate); full master channel still deferred"
+          },
+          "evidence": "git log",
+          "id": "F0136",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "10c990a",
+            "subject": "knowledge-loop: L0009 \u2014 the hybrid arbiter is a validator (declare + validate), shippable without the master-channel rearchitecture"
+          },
+          "evidence": "git log",
+          "id": "F0137",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "20ea61a",
+            "subject": "Hybrid key arbiter: structural_keys rules tonicization-vs-modulation (Phase J validator)"
+          },
+          "evidence": "git log",
+          "id": "F0138",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "9b5d101",
+            "subject": "knowledge-loop: L0008 \u2014 under-assertion fixed at the harmony (cadential returns); measure by bar-level agreement not area-count"
+          },
+          "evidence": "git log",
+          "id": "F0139",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "37c9b22",
+            "subject": "cadential_return: the harmony lever that fixes under-assertion (the surface asserts its key)"
+          },
+          "evidence": "git log",
+          "id": "F0140",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "269b283",
+            "subject": "knowledge-loop: L0007 \u2014 bass tonic-anchoring can't fix under-assertion (measured); it's a harmony-walk problem"
+          },
+          "evidence": "git log",
+          "id": "F0141",
+          "kind": "commit",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0142",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Wend",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Wend",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/Wend.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0143",
+          "kind": "baseline",
+          "project": "synthetic-worlds/Whales",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/Whales",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b2a7226",
+            "subject": "Merge pull request #19 from Lifted-Truck/phase2/detectors"
+          },
+          "evidence": "git log",
+          "id": "F0144",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "0841eb8",
+            "subject": "listener: detector set + sample-accurate typed events (Phase 2, package 2)"
+          },
+          "evidence": "git log",
+          "id": "F0145",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "2690fde",
+            "subject": "Merge pull request #18 from Lifted-Truck/phase2/listener-features"
+          },
+          "evidence": "git log",
+          "id": "F0146",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8e75ce8",
+            "subject": "tests: replace M_PI with local constant (MSVC has no M_PI by default)"
+          },
+          "evidence": "git log",
+          "id": "F0147",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "41b93c5",
+            "subject": "listener: analysis chain \u2014 followers + spectral features (Phase 2, package 1)"
+          },
+          "evidence": "git log",
+          "id": "F0148",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "9c5ecce",
+            "subject": "Merge pull request #17 from Lifted-Truck/phase1/gain-and-defaults"
+          },
+          "evidence": "git log",
+          "id": "F0149",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f3e982d",
+            "subject": "mix: input gain, latency reporting, responsive default position (Julian)"
+          },
+          "evidence": "git log",
+          "id": "F0150",
+          "kind": "commit",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0151",
+          "kind": "baseline",
+          "project": "synthetic-worlds/auricle",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/auricle",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/Auricle.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "5de146e",
+            "subject": "docs: refresh README to current status (Phase 2 done/live-verified, Phase 3 started); record parked substrate-swap idea"
+          },
+          "evidence": "git log",
+          "id": "F0152",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8e56515",
+            "subject": "knowledge-loop: record L0005 (arc is a dynamics problem, not an observer one)"
+          },
+          "evidence": "git log",
+          "id": "F0153",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "0c2af78",
+            "subject": "core: Phase 3 slice 3a \u2014 observer suite (cluster/boundary/anisotropy) + design note"
+          },
+          "evidence": "git log",
+          "id": "F0154",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "261355d",
+            "subject": "knowledge-loop: record L0004 (MIDI-clock-follow gotchas from live Ableton verification)"
+          },
+          "evidence": "git log",
+          "id": "F0155",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "39b35cb",
+            "subject": "midi: clock-follow robustness from live Ableton verification"
+          },
+          "evidence": "git log",
+          "id": "F0156",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "63abc8c",
+            "subject": "midi: Phase 2 slice 2b \u2014 external MIDI-clock follow (lock to Ableton transport)"
+          },
+          "evidence": "git log",
+          "id": "F0157",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "13261a9",
+            "subject": "knowledge-loop: record L0002 (virtual MIDI port needs sandbox disabled) + L0003 (keep easymidi out of CI)"
+          },
+          "evidence": "git log",
+          "id": "F0158",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "dbdb021",
+            "subject": "midi: live CLI --ema-alpha and --cooldown flags (pacing for auditions)"
+          },
+          "evidence": "git log",
+          "id": "F0159",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "bbff0c6",
+            "subject": "docs: integrate self-improving knowledge loop (CLAUDE.md protocol + INDEX + LIBRARY)"
+          },
+          "evidence": "git log",
+          "id": "F0160",
+          "kind": "commit",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0161",
+          "kind": "baseline",
+          "project": "synthetic-worlds/automata",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/automata",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/Automata.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "224a81b",
+            "subject": "Scaffold EDGEWISE: harness, ported pure core, E1 oracle, knowledge loop"
+          },
+          "evidence": "git log",
+          "id": "F0162",
+          "kind": "commit",
+          "project": "synthetic-worlds/edgewise",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0163",
+          "kind": "baseline",
+          "project": "synthetic-worlds/edgewise",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/edgewise",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/edgewise.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0164",
+          "kind": "baseline",
+          "project": "synthetic-worlds/out",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/out",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0165",
+          "kind": "baseline",
+          "project": "synthetic-worlds/terrane",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/terrane",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/Terrane.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "a3de8ba",
+            "target": "fast",
+            "ts": "2026-07-13T01:50:52Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0166",
+          "kind": "verify",
+          "project": "synthetic-worlds/tribos",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "d967af9",
+            "subject": "trace: harness retrofit (cites a3de8ba)"
+          },
+          "evidence": "git log",
+          "id": "F0167",
+          "kind": "commit",
+          "project": "synthetic-worlds/tribos",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a3de8ba",
+            "subject": "Retrofit ecosystem harness (survey \u2192 manifest \u2192 non-destructive scaffold)"
+          },
+          "evidence": "git log",
+          "id": "F0168",
+          "kind": "commit",
+          "project": "synthetic-worlds/tribos",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 1
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0169",
+          "kind": "baseline",
+          "project": "synthetic-worlds/tribos",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/tribos",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": true,
+        "remote": null,
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 3,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0170",
+          "kind": "baseline",
+          "project": "synthetic-worlds/wont",
+          "source": "inferred"
+        }
+      ],
+      "group": "synthetic-worlds",
+      "name": "synthetic-worlds/wont",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "git@github.com:Lifted-Truck/wont.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0171",
+          "kind": "baseline",
+          "project": "the-governor",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "the-governor",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0172",
+          "kind": "baseline",
+          "project": "vertex",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "vertex",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0173",
+          "kind": "baseline",
+          "project": "wavetable-generator",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "wavetable-generator",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/wavetable-generator",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0174",
+          "kind": "baseline",
+          "project": "yoink",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "yoink",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "6b5adaf",
+            "subject": "chore(license): attach PolyForm Noncommercial License 1.0.0 to the project (RE-1 closed)"
+          },
+          "evidence": "git log",
+          "id": "F0175",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8416d4d",
+            "subject": "Merge pull request #217 from Lifted-Truck/gap-e-slice3-texture-rules"
+          },
+          "evidence": "git log",
+          "id": "F0176",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "7676a03",
+            "subject": "Merge pull request #216 from Lifted-Truck/audit-efficiency-family"
+          },
+          "evidence": "git log",
+          "id": "F0177",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "7848e43",
+            "subject": "feat(rules): the texture rule family over part-relation atoms (gap E slice 3)"
+          },
+          "evidence": "git log",
+          "id": "F0178",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "aeec53c",
+            "subject": "audit: add the efficiency & complexity family (\u00a76b) + a scaling-probe harness"
+          },
+          "evidence": "git log",
+          "id": "F0179",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "e8f4fc8",
+            "subject": "Merge pull request #215 from Lifted-Truck/fix-214-relations-linear-sweep"
+          },
+          "evidence": "git log",
+          "id": "F0180",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "0ab9269",
+            "subject": "perf(temporal): linear onset-sweep for part_relations (#214)"
+          },
+          "evidence": "git log",
+          "id": "F0181",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "cb69ad5",
+            "subject": "Merge pull request #213 from Lifted-Truck/fix-206-207-208-temporal-cluster"
+          },
+          "evidence": "git log",
+          "id": "F0182",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b245bf4",
+            "subject": "Merge pull request #212 from Lifted-Truck/fix-204-midi-subtick"
+          },
+          "evidence": "git log",
+          "id": "F0183",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "815433d",
+            "subject": "Merge pull request #211 from Lifted-Truck/fix-205-step-pattern-invariant"
+          },
+          "evidence": "git log",
+          "id": "F0184",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "1af7dc4",
+            "subject": "fix(temporal): linear onset clustering + degenerate-span guard (#206, #207) + ROADMAP repair-contract typo (#208)"
+          },
+          "evidence": "git log",
+          "id": "F0185",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a3c7dbd",
+            "subject": "fix(io/midi): floor sub-tick note durations to one tick on write (#204)"
+          },
+          "evidence": "git log",
+          "id": "F0186",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "fa0ec30",
+            "subject": "docs(roadmap): record decision 13 \u2014 step_pattern is an invariant shape descriptor (#205)"
+          },
+          "evidence": "git log",
+          "id": "F0187",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "398b7c9",
+            "subject": "fix(scale_analysis): step_pattern is a transposition-invariant shape descriptor (#205)"
+          },
+          "evidence": "git log",
+          "id": "F0188",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "0c74b3e",
+            "subject": "Merge pull request #210 from Lifted-Truck/docs-phase6-fold-and-ci-ratify"
+          },
+          "evidence": "git log",
+          "id": "F0189",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "08a6d42",
+            "subject": "docs(roadmap): fold Phase 6 brief + ratify tonality-core CI parity contract"
+          },
+          "evidence": "git log",
+          "id": "F0190",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3fd080e",
+            "subject": "Merge pull request #209 from Lifted-Truck/port/response-ci-required"
+          },
+          "evidence": "git log",
+          "id": "F0191",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "b1adada",
+            "subject": "integrations(tonality-core): response \u2014 CI is live, cross-platform split ratifiable"
+          },
+          "evidence": "git log",
+          "id": "F0192",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "da74244",
+            "subject": "Merge pull request #203 from Lifted-Truck/gap-e-slice2-relation-atoms"
+          },
+          "evidence": "git log",
+          "id": "F0193",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "673ebbf",
+            "subject": "feat(temporal): pairwise part-relation atoms (gap E slice 2)"
+          },
+          "evidence": "git log",
+          "id": "F0194",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "0077e5c",
+            "subject": "Merge pull request #202 from Lifted-Truck/goldens-audit-followup"
+          },
+          "evidence": "git log",
+          "id": "F0195",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "432d065",
+            "subject": "Merge pull request #199 from Lifted-Truck/gap-e-slice1-part-profiles"
+          },
+          "evidence": "git log",
+          "id": "F0196",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "2331ab6",
+            "subject": "docs: fix stale harmony-smoke comment (#200) + document the iii-as-tonic convention"
+          },
+          "evidence": "git log",
+          "id": "F0197",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a39a041",
+            "subject": "feat(temporal): part content descriptors (gap E slice 1)"
+          },
+          "evidence": "git log",
+          "id": "F0198",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3f7c7d5",
+            "subject": "Merge pull request #198 from Lifted-Truck/corpus-workbench-seed"
+          },
+          "evidence": "git log",
+          "id": "F0199",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "1180d4e",
+            "subject": "Merge pull request #197 from Lifted-Truck/corpus-exercise-regime"
+          },
+          "evidence": "git log",
+          "id": "F0200",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8ed895f",
+            "subject": "docs(integrations): seed the corpus-workbench consumer (A11, anticipated)"
+          },
+          "evidence": "git log",
+          "id": "F0201",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "9289a31",
+            "subject": "feat(validation): corpus exercise regime \u2014 rulesets + patterns over real MIDI"
+          },
+          "evidence": "git log",
+          "id": "F0202",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "7f99a21",
+            "subject": "Merge pull request #196 from Lifted-Truck/port-ci-notice-and-gap-e"
+          },
+          "evidence": "git log",
+          "id": "F0203",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "3f69404",
+            "subject": "docs: port-CI notice (tonality-core has no CI) + gap E (part-relationship vocabulary)"
+          },
+          "evidence": "git log",
+          "id": "F0204",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "d104959",
+            "subject": "Merge pull request #195 from Lifted-Truck/patterns-slice1-melodic-motif"
+          },
+          "evidence": "git log",
+          "id": "F0205",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "a8eb659",
+            "subject": "feat(patterns): the pattern layer \u2014 melodic-motif object + matcher (gap C slice 1)"
+          },
+          "evidence": "git log",
+          "id": "F0206",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "ba4c561",
+            "subject": "Merge pull request #194 from Lifted-Truck/repair-slice1b-melody"
+          },
+          "evidence": "git log",
+          "id": "F0207",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "2e2dae3",
+            "subject": "feat(search): melody-driven repair candidates (conformance repair slice 1b)"
+          },
+          "evidence": "git log",
+          "id": "F0208",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "1393ebf",
+            "subject": "Merge pull request #193 from Lifted-Truck/audit-semantic-coherence"
+          },
+          "evidence": "git log",
+          "id": "F0209",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "de22f89",
+            "subject": "docs(audit): add semantic-coherence as a standing per-cycle audit check"
+          },
+          "evidence": "git log",
+          "id": "F0210",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "6929e70",
+            "subject": "Merge pull request #192 from Lifted-Truck/wont-ack-per-run-pooling"
+          },
+          "evidence": "git log",
+          "id": "F0211",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "38344eb",
+            "subject": "docs(integrations): file wont ack \u2014 per-run pooling / K-scoped-session (response-2)"
+          },
+          "evidence": "git log",
+          "id": "F0212",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "6993fa7",
+            "subject": "Merge pull request #191 from Lifted-Truck/repair-slice1-voice-motion"
+          },
+          "evidence": "git log",
+          "id": "F0213",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "2031444",
+            "subject": "feat(search): conformance repair \u2014 impose a ruleset via minimal edits (slice 1)"
+          },
+          "evidence": "git log",
+          "id": "F0214",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "6b41da6",
+            "subject": "Merge pull request #190 from Lifted-Truck/audiology-scale-name-decision"
+          },
+          "evidence": "git log",
+          "id": "F0215",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f652d9b",
+            "subject": "Merge pull request #189 from Lifted-Truck/horizon-middleware-tabled"
+          },
+          "evidence": "git log",
+          "id": "F0216",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c50d613",
+            "subject": "integration: re-land Julian's scale-name decision (orphaned by ack merge race)"
+          },
+          "evidence": "git log",
+          "id": "F0217",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "0d0d289",
+            "subject": "docs(roadmap): table client-linking middleware as Horizon H2 (with triggers)"
+          },
+          "evidence": "git log",
+          "id": "F0218",
+          "kind": "commit",
+          "project": "Tonality",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 13,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0219",
+          "kind": "baseline",
+          "project": "Tonality",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "Tonality",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": false,
+        "remote": "git@github.com:Lifted-Truck/Tonality.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "8687e0c",
+            "subject": "ci: split the matrix \u2014 byte-exact on macOS, tolerance-portable on Linux"
+          },
+          "evidence": "git log",
+          "id": "F0220",
+          "kind": "commit",
+          "project": "tonality-core",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "f09a98b",
+            "subject": "ci: stand up the parity harness on push + PR (ubuntu + macos matrix)"
+          },
+          "evidence": "git log",
+          "id": "F0221",
+          "kind": "commit",
+          "project": "tonality-core",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0222",
+          "kind": "baseline",
+          "project": "tonality-core",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "tonality-core",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "https://github.com/Lifted-Truck/tonality-core.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "exit": 0,
+            "git": "cb8afae",
+            "target": "fast",
+            "ts": "2026-07-13T23:48:09Z"
+          },
+          "evidence": ".harness/last-verify.json",
+          "id": "F0223",
+          "kind": "verify",
+          "project": "tonality-Live",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "cb8afae",
+            "subject": "chore: retrofit ecosystem agent harness (rung 1)"
+          },
+          "evidence": "git log",
+          "id": "F0224",
+          "kind": "commit",
+          "project": "tonality-Live",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "basis": "since-midnight",
+            "hash": "c94cf67",
+            "subject": "docs: add Tonality engine install instructions; vendor SDK build verified"
+          },
+          "evidence": "git log",
+          "id": "F0225",
+          "kind": "commit",
+          "project": "tonality-Live",
+          "source": "inferred"
+        },
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 1
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0226",
+          "kind": "baseline",
+          "project": "tonality-Live",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "tonality-Live",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": true,
+        "git": true,
+        "library": true,
+        "manifest": true,
+        "remote": "https://github.com/Lifted-Truck/Tonality-Live.git",
+        "roadmap": true,
+        "status_surface": false,
+        "traces": true,
+        "verify": true
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0227",
+          "kind": "baseline",
+          "project": "substack2pdf",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "substack2pdf",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": true,
+        "library": false,
+        "manifest": false,
+        "remote": "git@github.com:Lifted-Truck/substack2pdf.git",
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    },
+    {
+      "facts": [
+        {
+          "data": {
+            "decisions": 0,
+            "traces": 0
+          },
+          "evidence": "first sighting (no day-start ledger entry)",
+          "id": "F0228",
+          "kind": "baseline",
+          "project": "ableton-wrangle",
+          "source": "inferred"
+        }
+      ],
+      "group": null,
+      "name": "ableton-wrangle",
+      "public": false,
+      "quiet": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "surfaces": {
+        "claude_md": false,
+        "git": false,
+        "library": false,
+        "manifest": false,
+        "remote": null,
+        "roadmap": false,
+        "status_surface": false,
+        "traces": false,
+        "verify": false
+      }
+    }
+  ],
+  "quiet_day": false,
+  "schema": "dispatch-facts.1"
+}
