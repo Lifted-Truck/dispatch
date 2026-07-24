@@ -26,7 +26,9 @@
   (template + CSS, self-contained HTML per the visual-first doctrine); a
   golden-render test pins the output for a fixture FACTS file. *Gate: golden
   render byte-stable; renders correctly with empty/quiet days; no network
-  dependencies in the page.* **← current phase**
+  dependencies in the page.* **CLOSED 2026-07-14** (human ratified;
+  evidence in traces/2026-07-13-e2-renderer.md; goldens held byte-stable
+  through the decision-7 schema change, which never touched the render).
 - **E2b — Roadmap roundup (deterministic).** A second render target, for
   the human: a cross-project portfolio board — every watched project's
   current phase, gate state, last-verify, and staleness, whether or not
@@ -34,7 +36,7 @@
   collector snapshot mode, since FACTS carry phase facts only on change).
   Added 2026-07-13 at the human's request. *Gate: golden-render
   byte-stable; every roster project appears exactly once;
-  inferred-vs-declared marking carried through.*
+  inferred-vs-declared marking carried through.* **← current phase**
 - **E3 — Narration (AI, fenced).** Model writes the day's narrative FROM the
   FACTS file only (prompt receives facts, not repo access); every prose claim
   must cite a fact id; a deterministic checker rejects narration containing
@@ -104,6 +106,18 @@
 - Website target: static-site generator? Which host/repo receives the
   published page? (Determines E4's shape. Needed by E4, not before.)
 - Digest voice/format preferences (length, tone). (Needed by E3.)
+- **Phase detection beyond the `← current phase` marker** (raised
+  2026-07-24, E2b build). Of 55 watched projects: 3 declare a phase via the
+  marker, 26 have a ROADMAP.md using some *other* convention (10 use
+  `- [x]` checkboxes, 8 use ✅, attest uses TODO/WIP/BLOCKED/DONE), and 26
+  have no ROADMAP at all. A parser for those conventions was deliberately
+  NOT written: checkbox/emoji lists are TASK lists, and reading "first
+  unchecked item" as a *phase* would emit confidently wrong board rows —
+  worse than an honest blank. Options: (a) leave as-is, the blanks are the
+  retrofit chore made visible (registry `derived_status` semantics);
+  (b) adopt one ecosystem-wide phase convention and retrofit;
+  (c) teach the parser a second *explicitly specified* convention. Human's
+  call — this is about their own roadmap conventions, not dispatch's code.
 
 ## Answered (moved from open questions)
 

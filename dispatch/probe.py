@@ -48,6 +48,17 @@ def _rev_exists(path, rev):
     return _git(path, ["cat-file", "-e", rev + "^{commit}"]) is not None
 
 
+def git_last_commit_date(path):
+    """Date (YYYY-MM-DD) of the most recent commit, or None.
+
+    Committer date in strict ISO form; only the date part is kept — staleness
+    is measured in days, and a time-of-day would make the snapshot vary
+    within a single collection day.
+    """
+    out = _git(path, ["log", "-1", "--format=%cI"])
+    return out.strip()[:10] if out and out.strip() else None
+
+
 def git_commits(path, prev_head, date):
     """New commits, newest first: since prev_head when usable, else since
     the collection date's midnight (first sighting / rewritten history).
@@ -122,7 +133,10 @@ def _numbered_entries(lines):
     return [m.group(1) for line in lines if (m := _DECISION_LINE.match(line))]
 
 
-_PHASE_MARK = re.compile(r"\*\*([A-Za-z]\w*)\s*—\s*(.+?)\.?\*\*")
+# Phase headings look like `**E1 — Title.**`, and some projects spell the id
+# with a leading word (`**Phase C0 — Consolidation.**`) — that prefix is
+# stripped so both conventions yield the same id.
+_PHASE_MARK = re.compile(r"\*\*(?:Phase\s+)?([A-Za-z]\w*)\s*—\s*(.+?)\.?\*\*")
 
 
 def read_roadmap_phase(path):
@@ -184,6 +198,7 @@ def observe(path, date, prev_entry, hasher, validator):
         commits, basis, dropped = git_commits(path, prev_head, date)
     return {
         "git_head": head,
+        "last_commit_date": git_last_commit_date(path) if head else None,
         "commits": commits,
         "commits_basis": basis,
         "commits_dropped": dropped,

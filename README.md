@@ -9,9 +9,8 @@ human-gated publishing.
 ecosystem roadmap live in [autonomous](https://github.com/Lifted-Truck/autonomous)
 (`~/Documents/Claude/autonomous/`) — this project executes; that repo governs.*
 
-*Last verified current: 2026-07-12 (E1 CLOSED — collector live via
-`./bin/collect`; verify gate now runs lint + unit tests; E2 renderer is the
-open phase).*
+*Last verified current: 2026-07-24 (E0–E2 closed; E2b portfolio board built,
+awaiting ratification; E3 narration is next).*
 
 ## The pipeline
 
@@ -53,11 +52,15 @@ claim in a digest is traceable to a collected artifact.
 
 ## Where to start
 
-1. Read [ROADMAP.md](ROADMAP.md) — phases E0–E4 with gates. E1 (registry +
-   collector) is closed; run it with `./bin/collect` (writes
-   `facts/<date>.json`, ledger in `state/`). E2 (deterministic renderer)
-   is built and awaiting gate ratification: `./bin/render facts/<date>.json`
-   writes `digests/<date>.html`, a self-contained page.
+1. Read [ROADMAP.md](ROADMAP.md) — phases E0–E4 with gates. E0–E2 are
+   closed; E2b (portfolio board) awaits ratification. The daily loop:
+   - `./bin/collect` — writes `facts/<date>.json` (the day's delta) and
+     `snapshots/<date>.json` (standing state); ledger in `state/`.
+   - `./bin/render facts/<date>.json` — the daily digest page.
+   - `./bin/roundup snapshots/<date>.json` — the cross-project board.
+
+   All three are deterministic and self-contained; generated outputs are
+   gitignored (decision 7).
 2. Read [CLAUDE.md](CLAUDE.md) §Domain for invariants and protected paths.
 3. Our brief against the standards repo:
    `autonomous/integrations/dispatch/brief.md`.

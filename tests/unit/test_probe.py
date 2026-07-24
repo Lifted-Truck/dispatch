@@ -80,6 +80,22 @@ def test_roadmap_phase_marker_on_wrapped_line(tmp_path):
     }
 
 
+def test_roadmap_phase_with_phase_word_prefix(tmp_path):
+    # autonomous spells ids as `**Phase C0 — ...**`; the prefix is stripped so
+    # the id matches the bare-id convention used elsewhere.
+    repo = make_repo(tmp_path, "alpha")
+    (repo / "ROADMAP.md").write_text(
+        "# r\n\n"
+        "- **Phase C0 — Consolidation.** Pull the corpus in.\n"
+        "  *Gate: dedup sweep clean.* **← current phase**\n"
+        "- **Phase P0 — Enforcement floor.** Later.\n"
+    )
+    assert probe.read_roadmap_phase(str(repo)) == {
+        "id": "C0",
+        "title": "Consolidation",
+    }
+
+
 def test_decisions_from_decisions_md(tmp_path):
     repo = make_repo(tmp_path, "alpha")
     (repo / "DECISIONS.md").write_text("# d\n\n1. One.\n2. Two.\n")

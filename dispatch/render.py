@@ -10,6 +10,8 @@ per the visual-first doctrine and the E2 gate).
 
 import html
 
+from . import theme
+
 SUPPORTED_SCHEMA = "dispatch-facts.1"
 
 _MONTHS = (
@@ -23,24 +25,7 @@ _KIND_ORDER = (
     "lesson", "library", "baseline", "changed", "status_invalid",
 )
 
-_CSS = """
-:root {
-  --paper: #f6f8f7; --ink: #1c2422; --muted: #5b6a66; --line: #d8e0dd;
-  --card: #ffffff; --accent: #0f6b63; --accent-ink: #0a4f49;
-  --good: #1a7a3c; --good-bg: #e5f3ea; --bad: #a33a2a; --bad-bg: #f6e4e0;
-  --warn: #8a5a00; --warn-bg: #f6edd8; --code-bg: #eef2f0;
-  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
-  --sans: "Seravek", "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #151a19; --ink: #e4eae8; --muted: #93a39e; --line: #2c3634;
-    --card: #1d2422; --accent: #4fb3a7; --accent-ink: #6ecabe;
-    --good: #5cc981; --good-bg: #1a2f22; --bad: #e08573; --bad-bg: #33201b;
-    --warn: #d9a94a; --warn-bg: #322a17; --code-bg: #10514c22;
-  }
-}
-html { background: var(--paper); }
+_CSS = theme.TOKENS + """html { background: var(--paper); }
 body { font-family: var(--sans); color: var(--ink); background: var(--paper);
   margin: 0; padding: 2.5rem 1.25rem 4rem; line-height: 1.55; }
 main { max-width: 46rem; margin: 0 auto; }

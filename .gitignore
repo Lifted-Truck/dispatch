@@ -5,6 +5,7 @@
 state/
 /facts/
 /digests/
+/snapshots/
 __pycache__/
 .pytest_cache/
 .ruff_cache/

@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""roundup — deterministic portfolio board from a SNAPSHOT file.
+
+No clock, no network: the output is a pure function of the input file.
+"""
+
+import argparse
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import roundup as roundup_mod  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="roundup", description=__doc__)
+    ap.add_argument("snapshot", help="path to a dispatch-snapshot.1 JSON file")
+    ap.add_argument("--out", default=os.path.join(REPO, "digests"),
+                    help="output directory (default: digests/)")
+    ap.add_argument("--stdout", action="store_true", help="print HTML instead of writing")
+    args = ap.parse_args(argv)
+
+    try:
+        with open(args.snapshot) as f:
+            doc = json.load(f)
+        page = roundup_mod.render(doc)
+    except (OSError, ValueError, KeyError) as exc:
+        print("roundup: %s" % exc, file=sys.stderr)
+        return 1
+
+    if args.stdout:
+        sys.stdout.write(page)
+        return 0
+    os.makedirs(args.out, exist_ok=True)
+    out_path = os.path.join(args.out, "roundup-" + doc["date"] + ".html")
+    with open(out_path, "w") as f:
+        f.write(page)
+    print(out_path)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

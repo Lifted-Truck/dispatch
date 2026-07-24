@@ -23,6 +23,8 @@ def main(argv=None):
     ap.add_argument("--watch", default=os.path.join(REPO, "watch.json"))
     ap.add_argument("--ledger", default=os.path.join(REPO, "state", "ledger.json"))
     ap.add_argument("--out", default=os.path.join(REPO, "facts"))
+    ap.add_argument("--snapshots", default=os.path.join(REPO, "snapshots"),
+                    help="where the portfolio snapshot is written")
     ap.add_argument("--no-update-ledger", action="store_true",
                     help="replay mode: write FACTS but leave the ledger untouched")
     args = ap.parse_args(argv)
@@ -31,6 +33,7 @@ def main(argv=None):
         out_path = run.run(
             args.watch, args.ledger, args.date, args.out,
             update_ledger=not args.no_update_ledger,
+            snapshot_dir=args.snapshots,
         )
     except Exception as exc:  # visible failure, no stack noise for known errors
         print("collect: %s" % exc, file=sys.stderr)

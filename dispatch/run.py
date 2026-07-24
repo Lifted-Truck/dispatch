@@ -12,7 +12,7 @@ latest snapshot.
 import json
 import os
 
-from . import boundary, facts, probe, status
+from . import boundary, facts, probe, snapshot, status
 
 LEDGER_SCHEMA = "dispatch-ledger.1"
 
@@ -45,7 +45,12 @@ def day_start_for(ledger, date):
 
 
 def collect(watch_path, ledger, date):
-    """One deterministic pass. Returns (facts_doc, new_ledger)."""
+    """One deterministic pass. Returns (facts_doc, snapshot_doc, new_ledger).
+
+    Two renderings of one collection: FACTS (the day's delta) and SNAPSHOT
+    (standing state of every project) come from the same observations, so
+    the roster is walked once.
+    """
     cfg = boundary.load_watch(watch_path)
     sweep, projects = boundary.resolve_projects(cfg)
     day_start = day_start_for(ledger, date)
@@ -65,23 +70,33 @@ def collect(watch_path, ledger, date):
         observed.append(dict(proj, surfaces=sweep.derive_status(proj["path"]), obs=obs))
 
     doc = facts.build(date, observed, day_start)
+    board = snapshot.build(date, observed)
     new_ledger = {
         "schema": LEDGER_SCHEMA,
         "date": date,
         "day_start": day_start,
         "latest": facts.new_ledger_entries(observed),
     }
-    return doc, new_ledger
+    return doc, board, new_ledger
 
 
-def run(watch_path, ledger_path, date, out_dir, update_ledger=True):
-    """Collect and write artifacts. Returns the FACTS file path."""
+def run(watch_path, ledger_path, date, out_dir, update_ledger=True,
+        snapshot_dir=None):
+    """Collect and write artifacts. Returns the FACTS file path.
+
+    The snapshot is written only when `snapshot_dir` is given — the library
+    stays explicit; the CLI supplies the default location.
+    """
     ledger = load_ledger(ledger_path)
-    doc, new_ledger = collect(watch_path, ledger, date)
+    doc, board, new_ledger = collect(watch_path, ledger, date)
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, date + ".json")
     with open(out_path, "w") as f:
         f.write(facts.serialize(doc))
+    if snapshot_dir:
+        os.makedirs(snapshot_dir, exist_ok=True)
+        with open(os.path.join(snapshot_dir, date + ".json"), "w") as f:
+            f.write(facts.serialize(board))
     if update_ledger:
         os.makedirs(os.path.dirname(ledger_path) or ".", exist_ok=True)
         with open(ledger_path, "w") as f:

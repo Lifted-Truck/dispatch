@@ -1,0 +1,75 @@
+{
+  "schema": "dispatch-snapshot.1",
+  "date": "2026-07-01",
+  "summary": {
+    "projects": 5,
+    "declared": 1,
+    "phase_known": 4,
+    "verify_green": 2,
+    "verify_red": 1,
+    "verify_unknown": 2,
+    "stale": 1
+  },
+  "projects": [
+    {
+      "name": "alpha",
+      "group": null,
+      "public": true,
+      "source": "inferred",
+      "status_surface": "absent",
+      "phase": {"id": "A2", "title": "Build the <widget> & ship it"},
+      "verify": {"target": "full", "exit": 0, "git": "ab12cd3", "state": "green"},
+      "stale_days": 0,
+      "staleness": "active",
+      "harness": ["claude_md", "git", "roadmap", "verify"]
+    },
+    {
+      "name": "worlds/beta",
+      "group": "worlds",
+      "public": false,
+      "source": "declared",
+      "status_surface": "declared",
+      "phase": {"id": "B1", "title": "The stream", "gate_state": "green"},
+      "verify": {"target": "fast", "exit": 1, "git": "77aa88b", "state": "red"},
+      "stale_days": 3,
+      "staleness": "recent",
+      "harness": ["claude_md", "git", "roadmap", "status_surface", "verify"]
+    },
+    {
+      "name": "gamma",
+      "group": null,
+      "public": false,
+      "source": "inferred",
+      "status_surface": "invalid",
+      "phase": {"id": "G0", "title": "Charter"},
+      "verify": {"target": "fast", "exit": 0, "git": "5c5c5c5", "state": "green"},
+      "stale_days": 12,
+      "staleness": "idle",
+      "harness": ["git", "roadmap"]
+    },
+    {
+      "name": "delta",
+      "group": null,
+      "public": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "phase": null,
+      "verify": null,
+      "stale_days": 96,
+      "staleness": "stale",
+      "harness": ["git"]
+    },
+    {
+      "name": "epsilon",
+      "group": null,
+      "public": false,
+      "source": "inferred",
+      "status_surface": "absent",
+      "phase": {"id": "E0", "title": "Scaffold"},
+      "verify": null,
+      "stale_days": null,
+      "staleness": "unknown",
+      "harness": []
+    }
+  ]
+}
