@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+"""narrate — emit the narrator prompt for a FACTS file and a voice.
+
+Deterministic: this prints the fenced prompt (facts-only) that a narrator
+model is then given. The model call itself runs outside this script (a
+subagent fed this prompt); its output must pass `bin/check-narration`.
+"""
+
+import argparse
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import narrator  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="narrate", description=__doc__)
+    ap.add_argument("facts", nargs="?", help="path to a dispatch-facts.1 JSON file")
+    ap.add_argument("--voice", default="operator", help="voice key (see --list)")
+    ap.add_argument("--list", action="store_true", help="list available voices")
+    args = ap.parse_args(argv)
+
+    if args.list:
+        for key, voice in sorted(narrator.VOICES.items()):
+            print("%-10s %s" % (key, voice["label"]))
+        return 0
+    if not args.facts:
+        print("narrate: a FACTS file is required (or use --list)", file=sys.stderr)
+        return 2
+    try:
+        with open(args.facts) as f:
+            facts_doc = json.load(f)
+        sys.stdout.write(narrator.build_prompt(facts_doc, args.voice))
+    except (OSError, ValueError, KeyError) as exc:
+        print("narrate: %s" % exc, file=sys.stderr)
+        return 2
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
