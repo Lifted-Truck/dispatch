@@ -5,10 +5,21 @@
       "Bash(git status)",
       "Bash(git diff *)",
       "Bash(git log *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git push -u origin *)",
+      "Bash(git push origin HEAD)",
+      "Bash(gh pr create*)",
+      "Bash(gh pr view*)",
+      "Bash(gh pr diff*)",
+      "Bash(gh pr list*)"
     ],
     "deny": [
-      "Bash(git push*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push origin main*)",
+      "Bash(git push origin HEAD:main*)",
+      "Bash(git push origin +*)",
+      "Bash(gh pr merge*)",
       "Bash(git reset --hard*)",
       "Bash(rm -rf*)",
       "Read(./.env*)",
