@@ -43,7 +43,9 @@
   must cite a fact id; a deterministic checker rejects narration containing
   fact ids that don't exist. *Gate: planted-fact test — narration over a
   fixture FACTS file cites only real fact ids; a fabricated-claim fixture is
-  caught by the checker.* **GATE MET — awaiting ratification.** Checker
+  caught by the checker.* **CLOSED 2026-08-10** (human ratified; evidence in
+  traces/2026-07-24-e3-checker.md + traces/2026-07-24-e3-narrator-voice.md).
+  Checker
   BUILT (`dispatch/narration.py`, `bin/check-narration`; fabricated ids AND
   uncited claims both caught). Narrator BUILT (`dispatch/narrator.py` fenced
   facts-only prompt, `bin/narrate`, Executive-brief default per decision 9);
@@ -52,9 +54,11 @@
   70 tests. Production narrator runtime (hook-free subagent) is E4 wiring.
 - **E4 — Publish pipeline.** Website integration; per-digest human
   ratification flow; auto-publish criteria defined and DECISIONS-recorded
-  before any unattended publish. *Gate: one full day-cycle lands on the
+  before any unattended publish. Also wires the production narrator runtime
+  (hook-free subagent, decision 9). *Gate: one full day-cycle lands on the
   website via ratification; an injected bad digest is stoppable before
-  publish.*
+  publish.* **← current phase.** BLOCKED pending the website-target
+  decision (open questions).
 
 ## Decisions on record (append-only)
 
@@ -103,6 +107,13 @@
    purpose) reflexively ran `./verify` despite a no-tools instruction — the
    deterministic checker, not narrator obedience, is the real fence; the
    production narrator should run without the Stop-gate hook (E4 wiring).
+10. **PR-based git workflow** (2026-08-10, human): `main` is no longer
+    committed to directly; work lands via reviewed pull requests. Branch
+    creation, commits, branch pushes, and opening/updating PRs are
+    pre-authorized (they were previously gated, which made the agent wait
+    on manual pushes); merging, pushing to `main`, force-push, history
+    rewrite, and ref deletion remain human-gated. A PR is opened only when
+    `./verify full` is green. Charter §Git workflow is the normative copy.
 5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
    `ruff check .` and `pytest -q tests/unit` (project venv) after the
    structural checks — a strengthening, applied with explicit approval per

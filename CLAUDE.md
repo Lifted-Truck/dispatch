@@ -56,8 +56,25 @@ per-project. Project-specific facts live in §Domain and in ROADMAP.md.
 
 Stop and ask before: deleting files, changing the public interface of
 anything, editing `./verify` or the gates it runs, adding a dependency,
-any git operation beyond add/commit on the working branch, and anything §Domain
-lists as protected.
+and anything §Domain lists as protected.
+
+## Git workflow (PR-based, decision 10)
+
+`main` is never committed to directly. Work happens on a branch and lands
+through a pull request the human reviews.
+
+- **Pre-authorized** (no need to ask): create a branch, commit to it, push
+  that branch to origin, open/update a PR, and push follow-up commits to an
+  open PR's branch.
+- **Still gated** (ask first): merging any PR, pushing to `main`,
+  force-pushing, rewriting history, and deleting branches or remote refs.
+- Branch names: `feat/…`, `fix/…`, `chore/…`, `docs/…` — one queue item or
+  concern per branch.
+- A PR is opened only on green: `./verify full` passes, and the PR body
+  states the queue item, the evidence, and the verify result. Red halts
+  forward work exactly as before.
+- Trace entries (see §Provenance) are written on the branch, so a merged PR
+  arrives with its provenance attached.
 
 ---
 
