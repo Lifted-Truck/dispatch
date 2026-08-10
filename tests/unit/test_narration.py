@@ -68,6 +68,17 @@ def test_uncited_facts_reported_but_not_a_failure():
     assert "F0004" not in report["uncited_facts"]
 
 
+def test_canonical_brief_narration_passes():
+    # End-to-end example (decision 9): a real executive-brief narration
+    # produced by the narrator subagent over fixture-day.json, every
+    # sentence — headline included — grounded. Pins the E3 happy path.
+    report = narration.check(_narration("brief-clean.md"), _facts())
+    assert report["ok"] is True
+    assert report["fabricated"] == []
+    assert report["uncited_sentences"] == []
+    assert len(report["cited"]) == 14
+
+
 def test_empty_narration_is_vacuously_ok():
     report = narration.check("", _facts())
     assert report["ok"] is True

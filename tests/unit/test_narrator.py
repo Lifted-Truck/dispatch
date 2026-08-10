@@ -47,3 +47,14 @@ def test_all_voices_build():
     doc = _facts()
     for key in narrator.VOICES:
         assert narrator.build_prompt(doc, key)
+
+
+def test_default_voice_is_a_real_voice():
+    assert narrator.DEFAULT_VOICE in narrator.VOICES
+
+
+def test_contract_forbids_uncited_closers():
+    # The refinement: soft/closing sentences are not exempt (decision 9).
+    prompt = narrator.build_prompt(_facts(), "brief")
+    assert "There is no uncited sentence." in prompt
+    assert "nothing to report" in prompt.lower()

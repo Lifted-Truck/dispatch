@@ -9,8 +9,9 @@ human-gated publishing.
 ecosystem roadmap live in [autonomous](https://github.com/Lifted-Truck/autonomous)
 (`~/Documents/Claude/autonomous/`) — this project executes; that repo governs.*
 
-*Last verified current: 2026-07-24 (E0–E2 closed; E2b portfolio board built,
-awaiting ratification; E3 narration is next).*
+*Last verified current: 2026-07-24 (E0–E2b closed; E3 narration in progress —
+deterministic checker + fenced narrator built, Executive-brief voice chosen;
+narrator model call runs as a subagent, fenced by the checker).*
 
 ## The pipeline
 

@@ -43,10 +43,13 @@
   must cite a fact id; a deterministic checker rejects narration containing
   fact ids that don't exist. *Gate: planted-fact test — narration over a
   fixture FACTS file cites only real fact ids; a fabricated-claim fixture is
-  caught by the checker.* **← current phase.** Checker BUILT
-  (`dispatch/narration.py`, `bin/check-narration`; gate fixtures green —
-  fabricated ids AND uncited claims both caught, 8 tests). Narrator (the
-  model call) pending the voice decision (open questions).
+  caught by the checker.* **GATE MET — awaiting ratification.** Checker
+  BUILT (`dispatch/narration.py`, `bin/check-narration`; fabricated ids AND
+  uncited claims both caught). Narrator BUILT (`dispatch/narrator.py` fenced
+  facts-only prompt, `bin/narrate`, Executive-brief default per decision 9);
+  proven end-to-end — a subagent narration over the fixture day passes the
+  checker (14 grounded citations, `tests/fixtures/narration/brief-clean.md`).
+  70 tests. Production narrator runtime (hook-free subagent) is E4 wiring.
 - **E4 — Publish pipeline.** Website integration; per-digest human
   ratification flow; auto-publish criteria defined and DECISIONS-recorded
   before any unattended publish. *Gate: one full day-cycle lands on the
@@ -88,6 +91,18 @@
    selection is fine; uncited real ids are a coverage note). `dispatch-facts.1`
    is frozen as-is — E3 is its first consumer and the post-decision-7 shape
    is clean, so no `.2` bump.
+9. **Digest voice + strict checker** (2026-07-24, human, after a 3-voice
+   test): the default digest voice is **Executive brief** (headline +
+   themed shipped/red/stalled sections); `changelog` and `operator` remain
+   selectable via `--voice`. The checker's every-sentence-cited rule stays
+   STRICT (not weakened to a warning) — instead the narrator contract was
+   refined: soft/closing/recommendation sentences must cite the fact they
+   rest on or be dropped, and the brief omits a theme's section entirely
+   rather than writing an uncited "nothing to report" line. Fabricated fact
+   ids remain a hard fail. Finding logged: 3/3 narrator subagents (general-
+   purpose) reflexively ran `./verify` despite a no-tools instruction — the
+   deterministic checker, not narrator obedience, is the real fence; the
+   production narrator should run without the Stop-gate hook (E4 wiring).
 5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
    `ruff check .` and `pytest -q tests/unit` (project venv) after the
    structural checks — a strengthening, applied with explicit approval per

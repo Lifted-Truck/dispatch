@@ -20,7 +20,8 @@ from dispatch import narrator  # noqa: E402
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="narrate", description=__doc__)
     ap.add_argument("facts", nargs="?", help="path to a dispatch-facts.1 JSON file")
-    ap.add_argument("--voice", default="operator", help="voice key (see --list)")
+    ap.add_argument("--voice", default=narrator.DEFAULT_VOICE,
+                    help="voice key (see --list); default is the digest voice")
     ap.add_argument("--list", action="store_true", help="list available voices")
     args = ap.parse_args(argv)
 

@@ -19,8 +19,13 @@ Ground rules (a deterministic checker enforces these; violations are rejected):
 - End every sentence that makes a factual claim with a citation to the fact
   id(s) it rests on, in square brackets: `[F0007]`, or grouped `[F0007, F0012]`.
 - Cite only fact ids that appear in the FACTS. Inventing an id fails the check.
-- Markdown headings need no citation. Everything else does.
+- Markdown headings need no citation. EVERY other sentence does — including
+  soft, connective, or closing lines and recommendations. A closer like
+  "worth watching before tomorrow" must cite the fact it rests on
+  (e.g. `[F0014]`) or be dropped. There is no uncited sentence.
 - Write about what the facts show; you need not mention every fact."""
+
+DEFAULT_VOICE = "brief"
 
 VOICES = {
     "changelog": {
@@ -44,10 +49,14 @@ VOICES = {
     "brief": {
         "label": "Executive brief",
         "spec": (
-            "Open with the day's one-line headline, then the notable movements "
+            "Open with the day's one-line headline — which is itself a claim "
+            "sentence and MUST cite the facts it summarizes (it is a lede, not "
+            "a bare title); then the notable movements "
             "grouped by theme — what shipped, what went red, what is stalled. "
             "Skimmable and slightly formal, three to four short paragraphs. "
-            "Group with markdown headings if it helps scanning."
+            "Group with markdown headings if it helps scanning. Omit a theme's "
+            "section entirely when no fact supports it — never write a "
+            "'nothing to report' line (it is an uncited claim and will fail)."
         ),
     },
 }
