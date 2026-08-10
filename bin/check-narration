@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""check-narration — deterministic fence: reject narration whose claims are
+uncited or cite fact ids the collector never produced.
+
+Exit 0 = safe to publish; 1 = rejected (details on stderr); 2 = bad input.
+No model calls.
+"""
+
+import argparse
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import narration  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="check-narration", description=__doc__)
+    ap.add_argument("narration", help="path to the narration markdown")
+    ap.add_argument("facts", help="path to the dispatch-facts.1 JSON it narrates")
+    args = ap.parse_args(argv)
+
+    try:
+        with open(args.narration, encoding="utf-8") as f:
+            text = f.read()
+        with open(args.facts) as f:
+            facts_doc = json.load(f)
+    except (OSError, ValueError) as exc:
+        print("check-narration: %s" % exc, file=sys.stderr)
+        return 2
+
+    report = narration.check(text, facts_doc)
+    if report["ok"]:
+        print("narration OK: %d citations, all grounded" % len(report["cited"]))
+        return 0
+    if report["fabricated"]:
+        print("REJECTED — cites fact ids that do not exist: %s"
+              % ", ".join(report["fabricated"]), file=sys.stderr)
+    for sentence in report["uncited_sentences"]:
+        print("REJECTED — uncited claim: %s" % sentence, file=sys.stderr)
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -36,13 +36,17 @@
   collector snapshot mode, since FACTS carry phase facts only on change).
   Added 2026-07-13 at the human's request. *Gate: golden-render
   byte-stable; every roster project appears exactly once;
-  inferred-vs-declared marking carried through.* **← current phase**
+  inferred-vs-declared marking carried through.* **CLOSED 2026-07-24**
+  (human ratified; evidence in traces/2026-07-24-e2b-roundup.md).
 - **E3 — Narration (AI, fenced).** Model writes the day's narrative FROM the
   FACTS file only (prompt receives facts, not repo access); every prose claim
   must cite a fact id; a deterministic checker rejects narration containing
   fact ids that don't exist. *Gate: planted-fact test — narration over a
   fixture FACTS file cites only real fact ids; a fabricated-claim fixture is
-  caught by the checker.*
+  caught by the checker.* **← current phase.** Checker BUILT
+  (`dispatch/narration.py`, `bin/check-narration`; gate fixtures green —
+  fabricated ids AND uncited claims both caught, 8 tests). Narrator (the
+  model call) pending the voice decision (open questions).
 - **E4 — Publish pipeline.** Website integration; per-digest human
   ratification flow; auto-publish criteria defined and DECISIONS-recorded
   before any unattended publish. *Gate: one full day-cycle lands on the
@@ -76,6 +80,14 @@
    and sweep-module path. Decision-3 owed item CLOSED: `status.1` fixtures
    filed at `autonomous/integrations/dispatch/contract-tests-status1.md`
    (ball: provider).
+8. **Narration citation contract + facts freeze** (2026-07-24): narration
+   cites facts inline as `[F0007]` (grouped `[F0007, F0012]` allowed); a
+   claim-sentence is a `.?!`-terminated span (headings + code fences
+   exempt) and must carry >=1 citation; the checker rejects fabricated ids
+   and uncited claims but does NOT require citing every fact (editorial
+   selection is fine; uncited real ids are a coverage note). `dispatch-facts.1`
+   is frozen as-is — E3 is its first consumer and the post-decision-7 shape
+   is clean, so no `.2` bump.
 5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
    `ruff check .` and `pytest -q tests/unit` (project venv) after the
    structural checks — a strengthening, applied with explicit approval per
