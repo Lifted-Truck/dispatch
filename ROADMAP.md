@@ -57,8 +57,13 @@
   before any unattended publish. Also wires the production narrator runtime
   (hook-free subagent, decision 9). *Gate: one full day-cycle lands on the
   website via ratification; an injected bad digest is stoppable before
-  publish.* **← current phase.** BLOCKED pending the website-target
-  decision (open questions).
+  publish.* **← current phase.** Gate half 2 (**stoppability**) MET:
+  `dispatch/publish.py` + `bin/{stage,ratify,publish}` enforce the public
+  filter, the narration fence, and hash-bound human ratification; 14
+  adversarial tests plus a live CLI run show a post-approval swap refused.
+  Gate half 1 (**a day-cycle lands on the website**) remains blocked on TWO
+  open questions: the website target (transport) and which projects may be
+  public (today: none, so a publishable digest is empty by construction).
 
 ## Decisions on record (append-only)
 
@@ -114,6 +119,17 @@
     on manual pushes); merging, pushing to `main`, force-push, history
     rewrite, and ref deletion remain human-gated. A PR is opened only when
     `./verify full` is green. Charter §Git workflow is the normative copy.
+11. **Publish gate: three properties, one chokepoint** (2026-08-12, E4):
+    nothing reaches publication except through `dispatch/publish.gate()`,
+    which enforces (a) the PUBLIC FILTER — only `public: true` projects
+    enter a bundle, and withheld projects are NAMED, never silently
+    dropped; (b) the NARRATION FENCE — the E3 checker must have passed;
+    (c) HASH-BOUND RATIFICATION — approval records the bundle's content
+    hash, so editing facts or prose after approval invalidates it, and
+    re-stamping the hash does not launder the change (the ratification
+    still names the original). `gate()` returns ALL blockers, not the
+    first. The transport is deliberately unimplemented: `bin/publish`
+    exits 3 rather than pretend to publish while the target is unanswered.
 5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
    `ruff check .` and `pytest -q tests/unit` (project venv) after the
    structural checks — a strengthening, applied with explicit approval per
@@ -141,9 +157,15 @@
 
 ## Open questions (blocking, ask the human)
 
-- Website target: static-site generator? Which host/repo receives the
-  published page? (Determines E4's shape. Needed by E4, not before.)
-- Digest voice/format preferences (length, tone). (Needed by E3.)
+- **Website target**: static-site generator? Which host/repo receives the
+  published page? (Determines E4's TRANSPORT only — the publish gate,
+  filtering, and ratification flow are target-independent and built.)
+- **Which projects may be published** — every watched project is
+  `public: false` (decision 6), so a publishable digest today is EMPTY by
+  construction. The E4 gate ("one full day-cycle lands on the website")
+  cannot be met until at least one project is flagged public. Raised
+  2026-08-12 during the E4 build; this is a second, independent blocker
+  from the website target.
 - **Phase detection beyond the `← current phase` marker** (raised
   2026-07-24, E2b build). Of 55 watched projects: 3 declare a phase via the
   marker, 26 have a ROADMAP.md using some *other* convention (10 use
@@ -159,8 +181,11 @@
 
 ## Answered (moved from open questions)
 
+- **Digest voice/format** (2026-07-24): Executive brief is the default;
+  `changelog` and `operator` remain selectable (decision 9).
 - **`public:` flags** (2026-07-12): keep every watched project private for
   now (decision 6); the flag layer in watch.json is live and defaults false.
+  NOTE: this is now also an E4 blocker — see open questions.
 - **Watch allowlist** (2026-07-10): the canonical ecosystem roster at
   `autonomous/registry.json` (autonomous Decision 14). dispatch layers
   per-project flags (`public:` etc.) in its own config over that roster —

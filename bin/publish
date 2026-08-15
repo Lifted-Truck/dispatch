@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""publish — the last mile. Refuses unless every gate is clear.
+
+Exit 0 = published (or dry-run clear), 1 = blocked, 2 = bad input,
+3 = no transport configured.
+
+The TRANSPORT (where the page actually goes) is deliberately unimplemented:
+the website target is an open ROADMAP question. Until it is answered this
+command verifies the gate and stops, which is the honest behaviour — it
+never pretends to have published.
+"""
+
+import argparse
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import publish as publish_mod  # noqa: E402
+from dispatch import render  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="publish", description=__doc__)
+    ap.add_argument("bundle", help="path to a staged bundle JSON")
+    ap.add_argument("--ratification", help="path to the ratification record")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="check the gate and render locally; never transmit")
+    ap.add_argument("--out", default=os.path.join(REPO, "digests"))
+    args = ap.parse_args(argv)
+
+    try:
+        with open(args.bundle) as f:
+            bundle = json.load(f)
+        record = None
+        if args.ratification:
+            with open(args.ratification) as f:
+                record = json.load(f)
+    except (OSError, ValueError) as exc:
+        print("publish: %s" % exc, file=sys.stderr)
+        return 2
+
+    blockers = publish_mod.gate(bundle, record)
+    if blockers:
+        print("publish: REFUSED — %d blocker(s):" % len(blockers), file=sys.stderr)
+        for blocker in blockers:
+            print("  - %s" % blocker, file=sys.stderr)
+        return 1
+
+    page = render.render(bundle["facts"])
+    if args.dry_run:
+        os.makedirs(args.out, exist_ok=True)
+        out_path = os.path.join(args.out, "publishable-" + bundle["date"] + ".html")
+        with open(out_path, "w") as f:
+            f.write(page)
+        print("gate clear; dry run wrote %s (nothing transmitted)" % out_path)
+        return 0
+
+    print(
+        "publish: gate is CLEAR but no transport is configured — the website "
+        "target is an open ROADMAP question. Re-run with --dry-run to render "
+        "locally, or answer the target question to wire the transport.",
+        file=sys.stderr,
+    )
+    return 3
+
+
+if __name__ == "__main__":
+    sys.exit(main())
