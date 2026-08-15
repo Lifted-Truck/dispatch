@@ -67,8 +67,7 @@ Authored by the dispatch lead session per ROADMAP decision 8 (narration
 citation contract). You are the narrator for a single day's digest.
 
 Task: write the narrative for {date} in the voice specified below, over the
-collected FACTS. Output ONLY the narration as markdown — no preamble, no
-explanation, no code fence around it.
+collected FACTS. {delivery}
 
 ## Voice: {voice_label}
 {voice_spec}
@@ -82,16 +81,39 @@ explanation, no code fence around it.
 """
 
 
-def build_prompt(facts_doc, voice_key):
-    """Assemble the narrator prompt for one FACTS document and one voice."""
+_DELIVER_MESSAGE = (
+    "Output ONLY the narration as markdown — no preamble, no explanation, no "
+    "code fence around it."
+)
+
+_DELIVER_FILE = (
+    "Write the narration (markdown only) to `{path}` using the Write tool, "
+    "then stop. The FILE is the deliverable — your chat message is not read, "
+    "so do not paste the narration into your reply or report on tooling. If a "
+    "harness hook interrupts you after the write, the file is already "
+    "delivered: do not rewrite it and do not run anything."
+)
+
+
+def build_prompt(facts_doc, voice_key, out_path=None):
+    """Assemble the narrator prompt for one FACTS document and one voice.
+
+    With `out_path`, the narrator is told to deliver as a FILE. That is the
+    production runtime (decision 12): a subagent's final message is fragile —
+    a harness hook firing at SubagentStop can bury it — whereas a written file
+    survives. Without it, the prompt asks for the narration inline (useful for
+    manual runs).
+    """
     if voice_key not in VOICES:
         raise KeyError(
             "unknown voice %r; choices: %s"
             % (voice_key, ", ".join(sorted(VOICES)))
         )
     voice = VOICES[voice_key]
+    delivery = _DELIVER_FILE.format(path=out_path) if out_path else _DELIVER_MESSAGE
     return _TEMPLATE.format(
         date=facts_doc.get("date", "unknown date"),
+        delivery=delivery,
         voice_label=voice["label"],
         voice_spec=voice["spec"],
         contract=CONTRACT,

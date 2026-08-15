@@ -130,6 +130,19 @@
     still names the original). `gate()` returns ALL blockers, not the
     first. The transport is deliberately unimplemented: `bin/publish`
     exits 3 rather than pretend to publish while the target is unanswered.
+12. **Production narrator runtime** (2026-08-12, E4; closes the decision-9
+    owed item): the narrator is a DEDICATED subagent
+    (`.claude/agents/narrator.md`) whose tool list is `Write` ONLY — it
+    cannot run `./verify` because the capability is absent, not because it
+    was asked nicely (four general-purpose narrators ignored a no-tools
+    instruction). Its deliverable is a FILE, not a final message: a harness
+    hook firing at SubagentStop consumes the chat message, which is exactly
+    how earlier narrations were lost, whereas a written file survives.
+    Proven: with the tree deliberately dirty so the Stop gate fired, the
+    narration file was delivered intact and passed the checker (14 grounded
+    citations). NOTE: this required NO change to the Stop gate — the
+    hook-scoping edit considered earlier was unnecessary, so the gate stays
+    exactly as strict as it was.
 5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
    `ruff check .` and `pytest -q tests/unit` (project venv) after the
    structural checks — a strengthening, applied with explicit approval per

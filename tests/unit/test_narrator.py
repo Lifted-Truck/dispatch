@@ -53,6 +53,21 @@ def test_default_voice_is_a_real_voice():
     assert narrator.DEFAULT_VOICE in narrator.VOICES
 
 
+def test_file_delivery_prompt_names_the_path():
+    # Production runtime (decision 12): the deliverable is a file, because a
+    # subagent's final message can be buried by a harness hook.
+    prompt = narrator.build_prompt(_facts(), "brief", out_path="/tmp/n.md")
+    assert "/tmp/n.md" in prompt
+    assert "Write tool" in prompt
+    assert "chat message is not read" in prompt
+
+
+def test_message_delivery_is_the_default():
+    prompt = narrator.build_prompt(_facts(), "brief")
+    assert "Output ONLY the narration" in prompt
+    assert "Write tool" not in prompt
+
+
 def test_contract_forbids_uncited_closers():
     # The refinement: soft/closing sentences are not exempt (decision 9).
     prompt = narrator.build_prompt(_facts(), "brief")
