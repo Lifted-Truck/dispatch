@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""ratify — record a human's approval of one exact staged bundle.
+
+The approval is bound to the bundle's content hash, so it does not carry
+over to edited content. This is the human gate; an agent running it on the
+human's behalf would defeat the point (see CLAUDE.md §Domain).
+"""
+
+import argparse
+import datetime
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import publish  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="ratify", description=__doc__)
+    ap.add_argument("bundle", help="path to a staged bundle JSON")
+    ap.add_argument("--approver", required=True, help="who is approving (a person)")
+    ap.add_argument("--out", default=os.path.join(REPO, "staged"))
+    args = ap.parse_args(argv)
+
+    try:
+        with open(args.bundle) as f:
+            bundle = json.load(f)
+    except (OSError, ValueError) as exc:
+        print("ratify: %s" % exc, file=sys.stderr)
+        return 2
+
+    # Show what is being approved, and refuse to rubber-stamp a bundle that
+    # is already blocked for a non-ratification reason.
+    blockers = [b for b in publish.gate(bundle, None) if "not ratified" not in b]
+    print("bundle %s (%s)" % (bundle.get("hash"), bundle.get("date")))
+    print("  publishable: %s" % (", ".join(bundle.get("publishable_projects", [])) or "NONE"))
+    print("  withheld:    %d" % len(bundle.get("withheld", [])))
+    if blockers:
+        for blocker in blockers:
+            print("  BLOCKER: %s" % blocker, file=sys.stderr)
+        print("ratify: refusing — fix the blockers above first", file=sys.stderr)
+        return 1
+
+    record = publish.ratification(
+        bundle["hash"],
+        bundle["date"],
+        args.approver,
+        datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    )
+    os.makedirs(args.out, exist_ok=True)
+    out_path = os.path.join(args.out, bundle["date"] + ".ratification.json")
+    with open(out_path, "w") as f:
+        json.dump(record, f, indent=2, sort_keys=True)
+        f.write("\n")
+    print("ratified -> %s" % out_path)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

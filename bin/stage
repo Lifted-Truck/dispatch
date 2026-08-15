@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""stage — assemble a publishable bundle from a FACTS file and its narration.
+
+Applies the public filter and runs the narration checker, then writes a
+staged bundle whose content hash a human ratifies. Nothing here publishes.
+"""
+
+import argparse
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import narration, publish  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="stage", description=__doc__)
+    ap.add_argument("facts", help="path to a dispatch-facts.1 JSON file")
+    ap.add_argument("narration", help="path to the narration markdown")
+    ap.add_argument("--out", default=os.path.join(REPO, "staged"))
+    args = ap.parse_args(argv)
+
+    try:
+        with open(args.facts) as f:
+            facts_doc = json.load(f)
+        with open(args.narration, encoding="utf-8") as f:
+            text = f.read()
+    except (OSError, ValueError) as exc:
+        print("stage: %s" % exc, file=sys.stderr)
+        return 2
+
+    report = narration.check(text, facts_doc)
+    bundle = publish.stage(facts_doc, text, report)
+
+    os.makedirs(args.out, exist_ok=True)
+    out_path = os.path.join(args.out, bundle["date"] + ".json")
+    with open(out_path, "w") as f:
+        json.dump(bundle, f, indent=2, sort_keys=True)
+        f.write("\n")
+
+    print(out_path)
+    print("  hash:        %s" % bundle["hash"])
+    print("  publishable: %s" % (", ".join(bundle["publishable_projects"]) or "NONE"))
+    print("  withheld:    %d private project(s)" % len(bundle["withheld"]))
+    blockers = publish.gate(bundle, None)
+    for blocker in blockers:
+        print("  BLOCKER: %s" % blocker)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
