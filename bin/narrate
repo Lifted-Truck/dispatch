@@ -23,6 +23,8 @@ def main(argv=None):
     ap.add_argument("--voice", default=narrator.DEFAULT_VOICE,
                     help="voice key (see --list); default is the digest voice")
     ap.add_argument("--list", action="store_true", help="list available voices")
+    ap.add_argument("--out-path", help="narration file the narrator must write "
+                                       "(production runtime; see decision 12)")
     args = ap.parse_args(argv)
 
     if args.list:
@@ -35,7 +37,9 @@ def main(argv=None):
     try:
         with open(args.facts) as f:
             facts_doc = json.load(f)
-        sys.stdout.write(narrator.build_prompt(facts_doc, args.voice))
+        sys.stdout.write(
+            narrator.build_prompt(facts_doc, args.voice, out_path=args.out_path)
+        )
     except (OSError, ValueError, KeyError) as exc:
         print("narrate: %s" % exc, file=sys.stderr)
         return 2
