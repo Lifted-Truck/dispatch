@@ -80,6 +80,19 @@ def test_roadmap_phase_marker_on_wrapped_line(tmp_path):
     }
 
 
+def test_roadmap_phase_ignores_bare_phrase_in_prose(tmp_path):
+    # Regression: a phase DESCRIPTION containing the words "current phase"
+    # (as dispatch's own E2b did) must not be read as the marker.
+    repo = make_repo(tmp_path, "alpha")
+    (repo / "ROADMAP.md").write_text(
+        "# r\n\n"
+        "- **E2b — Roundup.** A board of every project's current phase and\n"
+        "  gate state. *Gate: stable.* **CLOSED**\n"
+        "- **E4 — Publish.** The real open front. **← current phase**\n"
+    )
+    assert probe.read_roadmap_phase(str(repo)) == {"id": "E4", "title": "Publish"}
+
+
 def test_roadmap_phase_with_phase_word_prefix(tmp_path):
     # autonomous spells ids as `**Phase C0 — ...**`; the prefix is stripped so
     # the id matches the bare-id convention used elsewhere.

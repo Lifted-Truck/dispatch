@@ -147,7 +147,10 @@ def read_roadmap_phase(path):
         m = _PHASE_MARK.search(line)
         if m:
             last = {"id": m.group(1), "title": m.group(2)}
-        if "current phase" in line.lower() and last:
+        # Match the MARKER (with its arrow), not the bare phrase: a phase's
+        # own description can legitimately say "current phase" (dispatch's E2b
+        # did) and must not be mistaken for the pointer.
+        if "← current phase" in line.lower() and last:
             return last
     return None
 
