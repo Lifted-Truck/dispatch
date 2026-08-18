@@ -92,6 +92,30 @@
    and sweep-module path. Decision-3 owed item CLOSED: `status.1` fixtures
    filed at `autonomous/integrations/dispatch/contract-tests-status1.md`
    (ball: provider).
+5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
+   `ruff check .` and `pytest -q tests/unit` (project venv) after the
+   structural checks — a strengthening, applied with explicit approval per
+   the charter's protected-paths rule.
+6. **Public flags** (2026-07-12, human decision): ALL watched projects stay
+   `public: false` for now; revisit when E4 makes publishing real.
+7. **Portable FACTS, no committed generated outputs** (2026-07-13, security
+   audit): (a) `facts/` and `digests/` are generated, reproducible outputs —
+   gitignored (root-anchored) and untracked, like `state/`; nothing
+   generated is committed to the public remote. (b) FACTS carry NO absolute
+   path — the sweep primitive returns machine-absolute paths, which bake the
+   local username + directory layout into a public artifact. `name`
+   (basename or `group/child`) is the portable identifier; the absolute path
+   is dropped from the FACTS record and kept as runtime-only probe input.
+   Guarded by `test_facts_carry_no_absolute_path`. Adopts the *principle*
+   from distillery's still-open D1 question (repo-relative, resolve before
+   data persists) as dispatch's own ruling — distillery has not itself
+   decided (its ROADMAP open question stands); no cross-project ruling was
+   borrowed. Local history (commits 8f94a27, 13f6a17) still contains the old
+   absolute-path blobs but is UNPUSHED (origin/main at df6211e) — history
+   rewrite offered to the human, not done unilaterally (charter git gate).
+   **Rewrite executed 2026-07-13** (human-approved): filter-branch purged
+   both files from `df6211e..HEAD`; the four commits were remapped
+   (see traces/2026-07-13-history-rewrite.md) and the leaked blob is gone.
 8. **Narration citation contract + facts freeze** (2026-07-24): narration
    cites facts inline as `[F0007]` (grouped `[F0007, F0012]` allowed); a
    claim-sentence is a `.?!`-terminated span (headings + code fences
@@ -143,30 +167,24 @@
     citations). NOTE: this required NO change to the Stop gate — the
     hook-scoping edit considered earlier was unnecessary, so the gate stays
     exactly as strict as it was.
-5. **Verify gate extended** (2026-07-12, human ratified): `fast` now runs
-   `ruff check .` and `pytest -q tests/unit` (project venv) after the
-   structural checks — a strengthening, applied with explicit approval per
-   the charter's protected-paths rule.
-6. **Public flags** (2026-07-12, human decision): ALL watched projects stay
-   `public: false` for now; revisit when E4 makes publishing real.
-7. **Portable FACTS, no committed generated outputs** (2026-07-13, security
-   audit): (a) `facts/` and `digests/` are generated, reproducible outputs —
-   gitignored (root-anchored) and untracked, like `state/`; nothing
-   generated is committed to the public remote. (b) FACTS carry NO absolute
-   path — the sweep primitive returns machine-absolute paths, which bake the
-   local username + directory layout into a public artifact. `name`
-   (basename or `group/child`) is the portable identifier; the absolute path
-   is dropped from the FACTS record and kept as runtime-only probe input.
-   Guarded by `test_facts_carry_no_absolute_path`. Adopts the *principle*
-   from distillery's still-open D1 question (repo-relative, resolve before
-   data persists) as dispatch's own ruling — distillery has not itself
-   decided (its ROADMAP open question stands); no cross-project ruling was
-   borrowed. Local history (commits 8f94a27, 13f6a17) still contains the old
-   absolute-path blobs but is UNPUSHED (origin/main at df6211e) — history
-   rewrite offered to the human, not done unilaterally (charter git gate).
-   **Rewrite executed 2026-07-13** (human-approved): filter-branch purged
-   both files from `df6211e..HEAD`; the four commits were remapped
-   (see traces/2026-07-13-history-rewrite.md) and the leaked blob is gone.
+13. **dispatch-001 closed; `status.1` has zero producers** (2026-08-18,
+    ratifying autonomous's response-002): our three contract fixtures landed
+    in autonomous CI (`kit/gates/status_validate.py` + suite, `./verify fast`
+    blocking), closing the decision-3 owed item — the exchange is done.
+    autonomous's sweep found NO repo in the fleet emits `STATUS.json` (0 of
+    62, including autonomous itself), and dispatch measured the consumer half:
+    66 projects collected, 66 `status_surface: absent`, 130/130 facts
+    `inferred`, 0 declared. **dispatch's `declared` code path has never run
+    against a real STATUS.json** — it is exercised only by fixtures, and is
+    dead code in production. dispatch therefore ASKED autonomous to prototype
+    a writer for itself (one real producer) before kit v2 freezes the schema,
+    and offered reciprocal contract tests in the emitting direction, including
+    willingness to take a `status.2` bump now rather than carry a frozen,
+    producer-untested contract. Also corrected upstream: `dispatch/status.py`
+    is hand-rolled and stdlib-only, NOT a schema engine, so the two validators
+    agreeing is weaker evidence than autonomous assumed — a shared misreading
+    of the prose contract would be invisible to both. Ball: provider. dispatch
+    is not blocked by any of this.
 
 ## Open questions (blocking, ask the human)
 
