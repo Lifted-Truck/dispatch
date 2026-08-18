@@ -8,6 +8,18 @@ TARGET="${1:-fast}"
 HARNESS_DIR=".harness"
 mkdir -p "$HARNESS_DIR"
 
+# Kit-owned gates (leak_gate, kit_integrity) live in .kit/ and are vendored by
+# kit_sync.py. Sourcing them is what makes them RUN — this repo carried them
+# unsourced, i.e. ungated, until 2026-08-18 (autonomous Decision 65).
+# A missing .kit/ is a hard exit: a degraded run that silently skips the leak
+# gate is the blind-gate trap the gate exists to prevent.
+if [ -r .kit/kit-gates.sh ]; then
+  . .kit/kit-gates.sh
+else
+  echo "verify: .kit/kit-gates.sh missing - run kit_sync.py" >&2
+  exit 1
+fi
+
 record() { # record <target> <exit_code>
   local git_hash; git_hash=$(git rev-parse --short HEAD 2>/dev/null || echo "no-git")
   printf '{"target":"%s","exit":%d,"git":"%s","ts":"%s"}\n' \
@@ -28,6 +40,8 @@ fast() {
     || { echo "verify[fast]: project.manifest.json is not valid JSON" >&2; ok=1; }
   grep -q "Facts before prose" CLAUDE.md \
     || { echo "verify[fast]: charter lost the facts-before-prose invariant" >&2; ok=1; }
+  kit_integrity || ok=1
+  leak_gate     || ok=1
   local py=".venv/bin/python"; [ -x "$py" ] || py="python3"
   "$py" -m ruff check . \
     || { echo "verify[fast]: ruff failed (or is not installed)" >&2; ok=1; }
