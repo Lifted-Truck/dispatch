@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""rollup — weekly rollup document + page from per-day FACTS files."""
+
+import argparse
+import glob
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import boundary, probe, rollup, rollup_render  # noqa: E402
+
+
+def _first_commits(watch_path):
+    """{name: first-ever commit date} — for 'new this week'."""
+    sweep, projects = boundary.resolve_projects(boundary.load_watch(watch_path))
+    out = {}
+    for p in projects:
+        first = probe._git(p["path"], ["log", "--reverse", "--format=%cs"])
+        if first and first.strip():
+            out[p["name"]] = first.strip().splitlines()[0]
+    return out
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="rollup", description=__doc__)
+    ap.add_argument("--history", default=os.path.join(REPO, "history"))
+    ap.add_argument("--watch", default=os.path.join(REPO, "watch.json"))
+    ap.add_argument("--out", default=os.path.join(REPO, "digests"))
+    ap.add_argument("--no-births", action="store_true",
+                    help="skip the per-repo first-commit lookup")
+    args = ap.parse_args(argv)
+
+    paths = sorted(glob.glob(os.path.join(args.history, "facts", "*.json")))
+    if not paths:
+        print("rollup: no per-day documents under %s/facts" % args.history, file=sys.stderr)
+        return 2
+    docs = [json.load(open(p)) for p in paths]
+    limits = {}
+    mpath = os.path.join(args.history, "MANIFEST.json")
+    if os.path.exists(mpath):
+        limits = json.load(open(mpath)).get("limits", {})
+    births = {} if args.no_births else _first_commits(args.watch)
+    doc = rollup.build(docs, first_commit=births, limits=limits)
+
+    with open(os.path.join(args.history, "rollup.json"), "w") as f:
+        json.dump(doc, f, indent=2, sort_keys=True)
+        f.write("\n")
+    os.makedirs(args.out, exist_ok=True)
+    out = os.path.join(args.out, "rollup-%s-%s.html" % (doc["range"]["start"], doc["range"]["end"]))
+    with open(out, "w") as f:
+        f.write(rollup_render.render(doc))
+    print(out)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

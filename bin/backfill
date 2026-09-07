@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""backfill — reconstruct one FACTS document per past day from git history.
+
+Writes history/facts/<date>.json for every day in the range (quiet days
+included) and history/MANIFEST.json naming what could not be recovered.
+Never touches the live ledger or facts/.
+"""
+
+import argparse
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import boundary, facts, history, probe  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="backfill", description=__doc__)
+    ap.add_argument("--start", required=True, help="first day, YYYY-MM-DD")
+    ap.add_argument("--end", required=True, help="last day, YYYY-MM-DD (inclusive)")
+    ap.add_argument("--watch", default=os.path.join(REPO, "watch.json"))
+    ap.add_argument("--out", default=os.path.join(REPO, "history"))
+    args = ap.parse_args(argv)
+
+    try:
+        cfg = boundary.load_watch(args.watch)
+        sweep, projects = boundary.resolve_projects(cfg)
+        for p in projects:
+            p["surfaces"] = sweep.derive_status(p["path"])
+        observations = {p["name"]: history.observe_range(p["path"], args.start, args.end)
+                        for p in projects}
+        heads = {p["name"]: probe.git_head(p["path"]) for p in projects}
+        days = history.build_days(projects, observations, args.start, args.end)
+    except (boundary.ProviderError, ValueError) as exc:
+        print("backfill: %s" % exc, file=sys.stderr)
+        return 2
+
+    fdir = os.path.join(args.out, "facts")
+    os.makedirs(fdir, exist_ok=True)
+    for date, doc in days:
+        with open(os.path.join(fdir, date + ".json"), "w") as f:
+            f.write(facts.serialize(doc))
+    with open(os.path.join(args.out, "MANIFEST.json"), "w") as f:
+        json.dump(history.manifest(projects, args.start, args.end, heads), f, indent=2, sort_keys=True)
+        f.write("\n")
+    quiet = sum(1 for _, d in days if d["quiet_day"])
+    print("%s: %d days (%d quiet), %d projects -> %s" % (
+        "%s..%s" % (args.start, args.end), len(days), quiet, len(projects), fdir))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -9,9 +9,9 @@ human-gated publishing.
 ecosystem roadmap live in [autonomous](https://github.com/Lifted-Truck/autonomous)
 (`~/Documents/Claude/autonomous/`) — this project executes; that repo governs.*
 
-*Last verified current: 2026-07-24 (E0–E2b closed; E3 narration in progress —
-deterministic checker + fenced narrator built, Executive-brief voice chosen;
-narrator model call runs as a subagent, fenced by the checker).*
+*Last verified current: 2026-09-07 (E0–E3 closed; E4 publish gate built, transport
+blocked on the website target; E5 history backfill + weekly rollups built,
+awaiting ratification).*
 
 ## The pipeline
 
@@ -59,6 +59,9 @@ claim in a digest is traceable to a collected artifact.
      `snapshots/<date>.json` (standing state); ledger in `state/`.
    - `./bin/render facts/<date>.json` — the daily digest page.
    - `./bin/roundup snapshots/<date>.json` — the cross-project board.
+   - `./bin/backfill --start YYYY-MM-DD --end YYYY-MM-DD` — reconstruct past
+     days from git history into `history/` (E5); then `./bin/rollup` for
+     the weekly rollup page.
 
    All three are deterministic and self-contained; generated outputs are
    gitignored (decision 7).

@@ -1,0 +1,250 @@
+{
+  "limits": {
+    "verify": "not recoverable \u2014 .harness/ is untracked"
+  },
+  "range": {
+    "end": "2026-06-14",
+    "start": "2026-06-01"
+  },
+  "schema": "dispatch-rollup.1",
+  "weeks": [
+    {
+      "days_covered": 2,
+      "fleet": {
+        "active_projects": 10,
+        "commits": 18,
+        "decisions": 0,
+        "lessons": 1,
+        "new_projects": [],
+        "phases_closed": 0,
+        "quiet_projects": 0,
+        "traces": 1
+      },
+      "projects": [
+        {
+          "active_days": 2,
+          "commits": 10,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "alpha",
+          "phases_closed": [],
+          "traces": 1
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "delta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "epsilon",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "eta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "gamma",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "iota",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "kappa",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "theta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 1,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "zeta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 0,
+          "decisions": 0,
+          "group": "worlds",
+          "lessons": 1,
+          "name": "worlds/beta",
+          "phases_closed": [],
+          "traces": 0
+        }
+      ],
+      "week_end": "2026-06-07",
+      "week_start": "2026-06-01"
+    },
+    {
+      "days_covered": 1,
+      "fleet": {
+        "active_projects": 1,
+        "commits": 0,
+        "decisions": 1,
+        "lessons": 0,
+        "new_projects": [
+          "gamma"
+        ],
+        "phases_closed": 1,
+        "quiet_projects": 9,
+        "traces": 0
+      },
+      "projects": [
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "alpha",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "delta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "epsilon",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "eta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "gamma",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "iota",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "kappa",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "theta",
+          "phases_closed": [],
+          "traces": 0
+        },
+        {
+          "active_days": 1,
+          "commits": 0,
+          "decisions": 1,
+          "group": "worlds",
+          "lessons": 0,
+          "name": "worlds/beta",
+          "phases_closed": [
+            "B1"
+          ],
+          "traces": 0
+        },
+        {
+          "active_days": 0,
+          "commits": 0,
+          "decisions": 0,
+          "group": null,
+          "lessons": 0,
+          "name": "zeta",
+          "phases_closed": [],
+          "traces": 0
+        }
+      ],
+      "week_end": "2026-06-14",
+      "week_start": "2026-06-08"
+    }
+  ]
+}
