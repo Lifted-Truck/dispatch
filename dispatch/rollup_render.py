@@ -6,6 +6,7 @@ and the board.
 """
 
 import html
+import re
 
 from . import theme
 
@@ -47,8 +48,50 @@ td.num, th.num { text-align: right; }
   padding: .1rem .4rem; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-ink); }
 .more { font-size: .78rem; color: var(--muted); margin: .5rem 0 0; }
 .new { font-size: .8rem; color: var(--muted); margin: .4rem 0 0; }
+.narr { margin: 0 0 .9rem; font-size: .93rem; }
+.narr h3 { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin: .9rem 0 .3rem; font-weight: 600; }
+.narr p { margin: 0 0 .6rem; }
+.cite { font-family: var(--mono); font-size: .72em; color: var(--accent-ink);
+  background: var(--code-bg); padding: .03em .3em; border-radius: 3px; white-space: nowrap; }
 .foot { margin-top: 2rem; font-size: .74rem; color: var(--muted); font-family: var(--mono); }
 """
+
+
+_CITE = re.compile(r"\[(F\d{4}(?:\s*,\s*F\d{4})*)\]")
+_BOLD = re.compile(r"\*\*(.+?)\*\*")
+
+
+def _inline(text):
+    """Escape, then re-introduce the two inline forms the narrator uses:
+    citations (kept visible — they are the provenance) and bold."""
+    out = _esc(text)
+    out = _CITE.sub(lambda m: '<span class="cite">%s</span>' % m.group(1), out)
+    return _BOLD.sub(r"<b>\1</b>", out)
+
+
+def narration_html(markdown):
+    """Narrator output -> HTML. Deliberately tiny: headings, paragraphs,
+    bold, citations. The narrator's contract permits nothing else, and a
+    Markdown library would be a dependency for four constructs."""
+    blocks, para = [], []
+
+    def flush():
+        if para:
+            blocks.append("<p>%s</p>" % _inline(" ".join(para)))
+            para.clear()
+
+    for line in markdown.splitlines():
+        s = line.strip()
+        if not s:
+            flush()
+        elif s.startswith("#"):
+            flush()
+            blocks.append("<h3>%s</h3>" % _inline(s.lstrip("#").strip()))
+        else:
+            para.append(s)
+    flush()
+    return '<div class="narr">%s</div>' % "".join(blocks)
 
 
 def _esc(v):
@@ -78,7 +121,7 @@ def _row(p):
     )
 
 
-def _week(w):
+def _week(w, narration=None):
     f = w["fleet"]
     active = [p for p in w["projects"] if p["active_days"]]
     shown, rest = active[:_TOP], active[_TOP:]
@@ -99,6 +142,8 @@ def _week(w):
         % (f["commits"], f["active_projects"], f["quiet_projects"],
            f["traces"], f["lessons"], f["phases_closed"]),
     ]
+    if narration:
+        parts.append(narration_html(narration))
     if shown:
         parts.append(
             "<table><thead><tr><th>Project</th><th class=\"num\">Commits</th>"
@@ -116,7 +161,10 @@ def _week(w):
     return "".join(parts)
 
 
-def render(doc):
+def render(doc, narrations=None):
+    """narrations: optional {week_start: markdown} — rendered above each
+    week's table when present."""
+    narrations = narrations or {}
     if doc.get("schema") != SUPPORTED_SCHEMA:
         raise ValueError("rollup renderer supports %s, got %r" % (SUPPORTED_SCHEMA, doc.get("schema")))
     r = doc["range"]
@@ -136,7 +184,7 @@ def render(doc):
     if doc.get("limits"):
         parts.append('<div class="limits"><b>Not recoverable from history:</b> %s</div>' % _esc(
             "; ".join("%s — %s" % (k, v) for k, v in sorted(doc["limits"].items()))))
-    parts.extend(_week(w) for w in doc["weeks"])
+    parts.extend(_week(w, narrations.get(w["week_start"])) for w in doc["weeks"])
     parts.append('<p class="foot">rendered deterministically from %s</p>' % _esc(SUPPORTED_SCHEMA))
     parts.append("</main></body></html>")
     return "\n".join(parts) + "\n"

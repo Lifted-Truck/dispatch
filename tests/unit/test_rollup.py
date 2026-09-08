@@ -83,3 +83,20 @@ def test_wrong_schema_refused():
         assert "dispatch-rollup.1" in str(exc)
     else:
         raise AssertionError("wrong schema was not refused")
+
+
+def test_narration_renders_above_week_table():
+    with open(os.path.join(FIXTURES, "rollups", "fixture-rollup.json")) as f:
+        doc = json.load(f)
+    md = "## Shipped\n\nAlpha landed the **core** [F0001, F0004].\nBeta went <quiet> [F0009].\n"
+    page = rollup_render.render(doc, {"2026-06-01": md})
+    assert '<div class="narr">' in page
+    assert "<h3>Shipped</h3>" in page
+    assert '<span class="cite">F0001, F0004</span>' in page
+    assert "<b>core</b>" in page
+    assert "&lt;quiet&gt;" in page and "<quiet>" not in page
+    # only the week that has a narration gets one
+    assert page.count('<div class="narr">') == 1
+    # and a render with no narrations is unchanged (golden still holds)
+    with open(os.path.join(GOLDEN, "fixture-rollup.html"), encoding="utf-8") as f:
+        assert rollup_render.render(doc) == f.read()

@@ -146,3 +146,26 @@ def test_bad_range_refused():
         assert "precedes" in str(exc)
     else:
         raise AssertionError("reversed range was not refused")
+
+
+def test_merge_days_resequences_ids_and_collapses_quiet():
+    def day(date, facts_alpha, facts_beta):
+        def rec(name, fs):
+            fs = fs or [{"id": "F0001", "project": name, "kind": "quiet", "data": {},
+                         "source": "inferred", "evidence": "x"}]
+            return {"name": name, "group": None, "public": False, "source": "inferred",
+                    "status_surface": "absent", "surfaces": {},
+                    "quiet": all(f["kind"] == "quiet" for f in fs), "facts": fs}
+        return {"schema": "dispatch-facts.1", "date": date, "quiet_day": False,
+                "projects": [rec("alpha", facts_alpha), rec("beta", facts_beta)]}
+    c = {"id": "F0001", "project": "alpha", "kind": "commit", "data": {"hash": "a"},
+         "source": "inferred", "evidence": "git log (backfill)"}
+    week = history.merge_days([day("2026-06-02", [c], []), day("2026-06-01", [c], [])])
+    assert week["date"] == "2026-06-01"
+    alpha, beta = week["projects"]
+    assert [f["id"] for f in alpha["facts"]] == ["F0001", "F0002"]  # unique across days
+    assert alpha["facts"][0]["evidence"].endswith("[2026-06-01]")
+    assert [f["kind"] for f in beta["facts"]] == ["quiet"] and beta["quiet"] is True
+    assert beta["facts"][0]["id"] == "F0003"
+    ids = [f["id"] for p in week["projects"] for f in p["facts"]]
+    assert len(ids) == len(set(ids))

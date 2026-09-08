@@ -73,3 +73,12 @@ def test_contract_forbids_uncited_closers():
     prompt = narrator.build_prompt(_facts(), "brief")
     assert "There is no uncited sentence." in prompt
     assert "nothing to report" in prompt.lower()
+
+
+def test_weekly_voice_and_compact_payload():
+    doc = _facts()
+    prompt = narrator.build_prompt(doc, "weekly", out_path="/tmp/w.md", compact=True)
+    assert "Weekly brief" in prompt and "seven days" in prompt
+    # compact: no pretty-print, per-fact project/source dropped, ids intact
+    assert '"F0001"' in prompt and '"project": "alpha"' not in prompt
+    assert "\n  " not in prompt.split("```json")[1]

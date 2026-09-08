@@ -10,7 +10,7 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPO)
 
-from dispatch import boundary, probe, rollup, rollup_render  # noqa: E402
+from dispatch import boundary, narration, probe, rollup, rollup_render  # noqa: E402
 
 
 def _first_commits(watch_path):
@@ -31,6 +31,9 @@ def main(argv=None):
     ap.add_argument("--out", default=os.path.join(REPO, "digests"))
     ap.add_argument("--no-births", action="store_true",
                     help="skip the per-repo first-commit lookup")
+    ap.add_argument("--narrations", metavar="DIR",
+                    help="include <week>.md narrations from DIR — each is re-checked "
+                         "against <history>/weeks/<week>.json and skipped if it fails")
     args = ap.parse_args(argv)
 
     paths = sorted(glob.glob(os.path.join(args.history, "facts", "*.json")))
@@ -45,13 +48,37 @@ def main(argv=None):
     births = {} if args.no_births else _first_commits(args.watch)
     doc = rollup.build(docs, first_commit=births, limits=limits)
 
+    # Narrations are AI output; the render step re-runs the deterministic
+    # checker on each one against its week's facts and drops any that fail.
+    # The page can therefore never carry an unchecked or stale narration,
+    # whatever happened upstream.
+    narrations = {}
+    if args.narrations:
+        for w in doc["weeks"]:
+            wk = w["week_start"]
+            npath = os.path.join(args.narrations, wk + ".md")
+            fpath = os.path.join(args.history, "weeks", wk + ".json")
+            if not (os.path.exists(npath) and os.path.exists(fpath)):
+                continue
+            with open(npath, encoding="utf-8") as f:
+                text = f.read()
+            report = narration.check(text, json.load(open(fpath)))
+            if report["ok"]:
+                narrations[wk] = text
+            else:
+                print("rollup: skipping %s narration — %s" % (
+                    wk, "fabricated ids " + ",".join(report["fabricated"])
+                    if report["fabricated"] else "%d uncited sentence(s)" % len(report["uncited_sentences"])),
+                    file=sys.stderr)
+        print("narrations included: %d of %d weeks" % (len(narrations), len(doc["weeks"])))
+
     with open(os.path.join(args.history, "rollup.json"), "w") as f:
         json.dump(doc, f, indent=2, sort_keys=True)
         f.write("\n")
     os.makedirs(args.out, exist_ok=True)
     out = os.path.join(args.out, "rollup-%s-%s.html" % (doc["range"]["start"], doc["range"]["end"]))
     with open(out, "w") as f:
-        f.write(rollup_render.render(doc))
+        f.write(rollup_render.render(doc, narrations))
     print(out)
     return 0
 

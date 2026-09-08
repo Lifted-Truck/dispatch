@@ -242,3 +242,47 @@ def manifest(projects, start, end, heads):
         "heads": heads,
         "limits": LIMITS,
     }
+
+
+def merge_days(day_docs):
+    """Seven (or any) per-day documents -> ONE week document in the
+    `dispatch-facts.1` shape, so the narrator and checker consume it unchanged.
+
+    Fact ids are per-day (`F0001`…) and would collide, so every fact is
+    re-sequenced across the week; the day it came from is appended to its
+    `evidence` string (`… [2026-08-12]`) rather than added as a field, which
+    keeps the record shape frozen (decision 14). Daily `quiet` facts are
+    dropped — a project quiet ALL week gets exactly one quiet fact; a project
+    quiet on some days just has fewer facts.
+    """
+    days = sorted(day_docs, key=lambda d: d["date"])
+    if not days:
+        raise ValueError("merge_days needs at least one day")
+    seq = facts._Seq()
+    by_name = {}
+    order = []
+    for doc in days:
+        for rec in doc["projects"]:
+            if rec["name"] not in by_name:
+                by_name[rec["name"]] = dict(rec, facts=[])
+                order.append(rec["name"])
+            for f in rec["facts"]:
+                if f["kind"] == "quiet":
+                    continue
+                by_name[rec["name"]]["facts"].append(dict(
+                    f, id=seq.next(), evidence="%s [%s]" % (f["evidence"], doc["date"])))
+    projects = []
+    for name in order:
+        rec = by_name[name]
+        if not rec["facts"]:
+            rec["facts"] = [{"id": seq.next(), "project": name, "kind": "quiet", "data": {},
+                             "source": "inferred",
+                             "evidence": "git history (backfill: no dated activity all week)"}]
+        rec["quiet"] = all(f["kind"] == "quiet" for f in rec["facts"])
+        projects.append(rec)
+    return {
+        "schema": facts.SCHEMA,
+        "date": days[0]["date"],
+        "quiet_day": all(p["quiet"] for p in projects),
+        "projects": projects,
+    }

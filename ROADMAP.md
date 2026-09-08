@@ -77,6 +77,13 @@
   `git log` count over the range (shown + truncated == total); no verify
   fact appears in any backfilled day; rollup golden-render byte-stable.*
   **← current phase** (E4 remains open, blocked on its two human questions).
+  **Weekly narration DONE** (2026-09-08): all 15 weeks narrated by Sonnet
+  subagents over merged week documents (`bin/weekfacts`), 15/15 pass the
+  checker — ~7,600 words, 346 citation groups, ZERO fabricated ids; three
+  weeks needed one single-sentence revision each (all three cited rather
+  than deleted), one busiest-week retry after its brief proved unreadable
+  (decision 15). `bin/rollup --narrations` re-checks each narration at
+  render time and drops any that fail.
 
 ## Decisions on record (append-only)
 
@@ -209,6 +216,23 @@
     so a backfilled day can never be mistaken for a live collection. What
     history cannot give — verify results, declared status — is absent AND
     named in `history/MANIFEST.json` `limits`, not approximated.
+15. **Narrator runtime for large briefs** (2026-09-08, E5 weekly narration):
+    decision 12's narrator (tools: Write) receives its facts INLINE, which
+    means every fact passes through the lead session twice (read, then
+    re-typed into the spawn). For a week of 700+ facts that is the wrong
+    shape, so large briefs are written to disk (`bin/weekfacts` →
+    `<week>.prompt.txt`, one fact per line because the Read tool pages by
+    line — a single-line payload made the busiest week's narrator unable to
+    read anything and it correctly refused) and the narrator is spawned with
+    a pointer prompt carrying the origin header. Added
+    `.claude/agents/narrator-file.md` (tools: Read, Write; no shell) as the
+    proper runtime; it loads next session. THIS pass used general-purpose
+    Sonnet agents as a scoped deviation — they have a shell — accepted only
+    because the deterministic checker, not agent obedience, is the fence
+    (proven: 15/15 passed, 0 fabricated ids), and every agent honoured
+    "do not run anything after the write" this time. Render step
+    (`bin/rollup --narrations`) re-checks every narration against its
+    week's facts and drops failures, so unchecked prose cannot reach a page.
 
 ## Open questions (blocking, ask the human)
 

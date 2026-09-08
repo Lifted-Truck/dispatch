@@ -10,6 +10,7 @@ Voices are data, not code — add one by adding a VOICES entry.
 """
 
 import json
+import re
 
 CONTRACT = """\
 Ground rules (a deterministic checker enforces these; violations are rejected):
@@ -44,6 +45,21 @@ VOICES = {
             "lightly connective (e.g. 'A quiet day across the fleet; the "
             "exception was...'). Two or three short paragraphs. Warm but never "
             "marketing; the connective tissue is tone, not invented fact."
+        ),
+    },
+    "weekly": {
+        "label": "Weekly brief",
+        "spec": (
+            "This is a WEEK, not a day: the facts span seven days and each "
+            "fact carries the `day` it happened on. Open with the "
+            "week's one-line headline — a cited claim sentence, not a bare "
+            "title. Then the movements grouped by theme: what shipped, what "
+            "closed a phase, what went quiet, what is new. Four to six short "
+            "paragraphs; group with markdown headings. Prefer naming the "
+            "projects that carried the week over listing every commit; a "
+            "reader wants the shape of the week. Omit a theme's section "
+            "entirely when no fact supports it — never write a 'nothing to "
+            "report' line."
         ),
     },
     "brief": {
@@ -95,7 +111,7 @@ _DELIVER_FILE = (
 )
 
 
-def build_prompt(facts_doc, voice_key, out_path=None):
+def build_prompt(facts_doc, voice_key, out_path=None, compact=False):
     """Assemble the narrator prompt for one FACTS document and one voice.
 
     With `out_path`, the narrator is told to deliver as a FILE. That is the
@@ -117,5 +133,50 @@ def build_prompt(facts_doc, voice_key, out_path=None):
         voice_label=voice["label"],
         voice_spec=voice["spec"],
         contract=CONTRACT,
-        facts_json=json.dumps(facts_doc, indent=2, sort_keys=True),
+        facts_json=_payload(facts_doc, compact),
     )
+
+
+def _payload(doc, compact):
+    """The facts as the narrator sees them. `compact` drops fields the
+    narrator never needs (per-project flags, per-fact `project`/`source`,
+    which are constant within a project) and pretty-printing — a week of
+    facts can run to hundreds of records, and the payload is the prompt."""
+    if not compact:
+        return json.dumps(doc, indent=2, sort_keys=True)
+    # Per fact: id, kind, the day (parsed off the evidence suffix that
+    # history.merge_days appends, else absent), and data minus constants
+    # (`basis` is "backfill" on every commit). Evidence text itself is
+    # dropped: the checker validates ids, and the narrator needs the day,
+    # not the artifact name.
+    slim = {"date": doc["date"], "projects": []}
+    for p in doc["projects"]:
+        fs = []
+        for f in p["facts"]:
+            item = {"id": f["id"], "kind": f["kind"]}
+            m = re.search(r"\[(\d{4}-\d{2}-\d{2})\]$", f.get("evidence", ""))
+            if m:
+                item["day"] = m.group(1)
+            data = {k: v for k, v in f["data"].items() if k != "basis"}
+            if data:
+                item["data"] = data
+            fs.append(item)
+        slim["projects"].append({"name": p["name"], "facts": fs})
+    return _one_fact_per_line(slim)
+
+
+def _one_fact_per_line(slim):
+    """Valid JSON laid out one fact per line. A narrator that must READ its
+    brief from a file (narrator-file agent) reads by lines with a size cap;
+    a week's facts as a single line blew past it and the narrator could
+    read nothing — a grounded refusal, but no narration. Lines are the
+    unit the tool pages by, so lines are the unit we emit."""
+    def dumps(o):
+        return json.dumps(o, separators=(",", ":"), sort_keys=True)
+    lines = ['{"date":%s,"projects":[' % dumps(slim["date"])]
+    for i, p in enumerate(slim["projects"]):
+        lines.append('{"name":%s,"facts":[' % dumps(p["name"]))
+        lines.append(",\n".join(dumps(f) for f in p["facts"]))
+        lines.append("]}" + ("," if i < len(slim["projects"]) - 1 else ""))
+    lines.append("]}")
+    return "\n".join(lines)
