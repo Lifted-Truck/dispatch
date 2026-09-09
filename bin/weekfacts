@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""weekfacts — merge backfilled days into one FACTS document per ISO week,
+plus the narrator prompt for each (compact payload, file delivery).
+
+Writes history/weeks/<monday>.json (the checker's input) and
+history/weeks/<monday>.prompt.txt (the narrator's input). Deterministic.
+"""
+
+import argparse
+import glob
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, REPO)
+
+from dispatch import facts, history, narrator, rollup  # noqa: E402
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="weekfacts", description=__doc__)
+    ap.add_argument("--history", default=os.path.join(REPO, "history"))
+    ap.add_argument("--voice", default="weekly")
+    args = ap.parse_args(argv)
+
+    paths = sorted(glob.glob(os.path.join(args.history, "facts", "*.json")))
+    if not paths:
+        print("weekfacts: no per-day documents under %s/facts" % args.history, file=sys.stderr)
+        return 2
+    weeks = {}
+    for p in paths:
+        doc = json.load(open(p))
+        weeks.setdefault(rollup.week_bounds(doc["date"])[0], []).append(doc)
+
+    wdir = os.path.join(args.history, "weeks")
+    ndir = os.path.join(args.history, "narration")
+    os.makedirs(wdir, exist_ok=True)
+    os.makedirs(ndir, exist_ok=True)
+    for monday, docs in sorted(weeks.items()):
+        week = history.merge_days(docs)
+        week["date"] = monday  # the week is identified by its Monday
+        with open(os.path.join(wdir, monday + ".json"), "w") as f:
+            f.write(facts.serialize(week))
+        out_path = os.path.join(ndir, monday + ".md")
+        prompt = narrator.build_prompt(week, args.voice, out_path=out_path, compact=True)
+        with open(os.path.join(wdir, monday + ".prompt.txt"), "w") as f:
+            f.write(prompt)
+        n = sum(len(p["facts"]) for p in week["projects"])
+        print("%s  days=%d facts=%d prompt=%dKB" % (monday, len(docs), n, len(prompt) // 1024))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

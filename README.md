@@ -9,9 +9,9 @@ human-gated publishing.
 ecosystem roadmap live in [autonomous](https://github.com/Lifted-Truck/autonomous)
 (`~/Documents/Claude/autonomous/`) — this project executes; that repo governs.*
 
-*Last verified current: 2026-07-24 (E0–E2b closed; E3 narration in progress —
-deterministic checker + fenced narrator built, Executive-brief voice chosen;
-narrator model call runs as a subagent, fenced by the checker).*
+*Last verified current: 2026-09-07 (E0–E3 closed; E4 publish gate built, transport
+blocked on the website target; E5 history backfill + weekly rollups built,
+awaiting ratification).*
 
 ## The pipeline
 
@@ -53,14 +53,18 @@ claim in a digest is traceable to a collected artifact.
 
 ## Where to start
 
-1. Read [ROADMAP.md](ROADMAP.md) — phases E0–E4 with gates. E0–E2 are
-   closed; E2b (portfolio board) awaits ratification. The daily loop:
+1. Read [ROADMAP.md](ROADMAP.md) — phases E0–E5 with gates. E0–E3 are
+   closed; E4 (publish) is blocked on the website target; E5 (history
+   backfill) awaits ratification. The tools:
    - `./bin/collect` — writes `facts/<date>.json` (the day's delta) and
      `snapshots/<date>.json` (standing state); ledger in `state/`.
    - `./bin/render facts/<date>.json` — the daily digest page.
    - `./bin/roundup snapshots/<date>.json` — the cross-project board.
+   - `./bin/backfill --start YYYY-MM-DD --end YYYY-MM-DD` — reconstruct past
+     days from git history into `history/` (E5); then `./bin/rollup` for
+     the weekly rollup page.
 
-   All three are deterministic and self-contained; generated outputs are
+   All are deterministic and self-contained; generated outputs are
    gitignored (decision 7).
 2. Read [CLAUDE.md](CLAUDE.md) §Domain for invariants and protected paths.
 3. Our brief against the standards repo:

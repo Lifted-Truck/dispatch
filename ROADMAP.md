@@ -64,6 +64,26 @@
   Gate half 1 (**a day-cycle lands on the website**) remains blocked on TWO
   open questions: the website target (transport) and which projects may be
   public (today: none, so a publishable digest is empty by construction).
+- **E5 — History backfill + rollups (deterministic).** Run the collector
+  BACKWARD over git history: one `dispatch-facts.1` document per past day
+  (June 2026 → now), commits bucketed by committer date with a time-bounded
+  window, traces by add-commit date, lessons by their `added:` date, phase
+  closures by `CLOSED` markers, dated decisions; quiet days explicit; verify
+  history NOT recoverable (`.harness/` is untracked) and said so, never
+  faked. Weekly rollups (`dispatch-rollup.1`) build from the per-day
+  documents and render through the shared theme. Added 2026-09-07 at the
+  human's request. *Gate: backfill replays byte-identical from the same git
+  history; per-repo commit totals reconcile exactly to an independent
+  `git log` count over the range (shown + truncated == total); no verify
+  fact appears in any backfilled day; rollup golden-render byte-stable.*
+  **← current phase** (E4 remains open, blocked on its two human questions).
+  **Weekly narration DONE** (2026-09-08): all 15 weeks narrated by Sonnet
+  subagents over merged week documents (`bin/weekfacts`), 15/15 pass the
+  checker — ~7,600 words, 346 citation groups, ZERO fabricated ids; three
+  weeks needed one single-sentence revision each (all three cited rather
+  than deleted), one busiest-week retry after its brief proved unreadable
+  (decision 15). `bin/rollup --narrations` re-checks each narration at
+  render time and drops any that fail.
 
 ## Decisions on record (append-only)
 
@@ -185,6 +205,34 @@
     agreeing is weaker evidence than autonomous assumed — a shared misreading
     of the prose contract would be invisible to both. Ball: provider. dispatch
     is not blocked by any of this.
+14. **Backfill provenance without a schema bump** (2026-09-07, E5):
+    backfilled days are ordinary `dispatch-facts.1` documents so the
+    existing renderer, narrator, and checker consume them unchanged
+    (decision 8's freeze holds — no optional field added). Provenance is
+    carried where it is already carried: every backfilled fact's
+    `evidence` string names the historical basis (e.g. `git log
+    (backfill)`, `traces/ (backfill: add-commit date)`), and the documents
+    live under `history/` (gitignored, reproducible), never in `facts/`,
+    so a backfilled day can never be mistaken for a live collection. What
+    history cannot give — verify results, declared status — is absent AND
+    named in `history/MANIFEST.json` `limits`, not approximated.
+15. **Narrator runtime for large briefs** (2026-09-08, E5 weekly narration):
+    decision 12's narrator (tools: Write) receives its facts INLINE, which
+    means every fact passes through the lead session twice (read, then
+    re-typed into the spawn). For a week of 700+ facts that is the wrong
+    shape, so large briefs are written to disk (`bin/weekfacts` →
+    `<week>.prompt.txt`, one fact per line because the Read tool pages by
+    line — a single-line payload made the busiest week's narrator unable to
+    read anything and it correctly refused) and the narrator is spawned with
+    a pointer prompt carrying the origin header. Added
+    `.claude/agents/narrator-file.md` (tools: Read, Write; no shell) as the
+    proper runtime; it loads next session. THIS pass used general-purpose
+    Sonnet agents as a scoped deviation — they have a shell — accepted only
+    because the deterministic checker, not agent obedience, is the fence
+    (proven: 15/15 passed, 0 fabricated ids), and every agent honoured
+    "do not run anything after the write" this time. Render step
+    (`bin/rollup --narrations`) re-checks every narration against its
+    week's facts and drops failures, so unchecked prose cannot reach a page.
 
 ## Open questions (blocking, ask the human)
 
@@ -226,6 +274,7 @@
 
 ## Deferred / demoted
 
-- Weekly/monthly rollup digests (build daily first).
+- ~~Weekly/monthly rollup digests (build daily first).~~ → promoted to E5
+  (2026-09-07).
 - Pulling distillery lesson-highlights into digests (needs distillery D4).
 - Auto-publish (explicitly earned, E4+).
